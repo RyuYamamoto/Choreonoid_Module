@@ -1,1 +1,2 @@
-choreonoid
+#choreonoid
+####ロボティクスプロジェクト3で作成した4足歩行ロボットのvrmlモデル

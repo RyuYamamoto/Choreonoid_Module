@@ -1,0 +1,672 @@
+#VRML V2.0 utf8
+
+PROTO Joint [
+ exposedField SFVec3f    center           0 0 0
+ exposedField MFNode     children         []
+ exposedField MFFloat    llimit           []
+ exposedField MFFloat    lvlimit          []
+ exposedField SFRotation limitOrientation 0 0 1 0
+ exposedField SFString   name             ""
+ exposedField SFRotation rotation         0 0 1 0
+ exposedField SFVec3f    scale            1 1 1
+ exposedField SFRotation scaleOrientation 0 0 1 0
+ exposedField MFFloat    stiffness        [ 0 0 0 ]
+ exposedField SFVec3f    translation      0 0 0
+ exposedField MFFloat    ulimit           []
+ exposedField MFFloat    uvlimit          []
+ exposedField SFString   jointType        ""
+ exposedField SFInt32    jointId          -1
+ exposedField SFVec3f    jointAxis        0 0 1
+ exposedField SFFloat    gearRatio        1
+ exposedField SFFloat    rotorInertia     0
+ exposedField SFFloat    rotorResistor    0
+ exposedField SFFloat    torqueConst      1
+ exposedField SFFloat    encoderPulse     1
+]
+{
+  Transform {
+    center           IS center
+    children         IS children
+    rotation         IS rotation
+    scale            IS scale
+    scaleOrientation IS scaleOrientation
+    translation      IS translation
+  }
+}
+
+PROTO Segment [
+ field         SFVec3f  bboxCenter       0 0 0
+ field         SFVec3f  bboxSize         -1 -1 -1
+ exposedField  SFVec3f  centerOfMass     0 0 0
+ exposedField  MFNode   children         [ ]
+ exposedField  SFNode   coord            NULL
+ exposedField  MFNode   displacers       [ ]
+ exposedField  SFFloat  mass             0 
+ exposedField  MFFloat  momentsOfInertia [ 0 0 0 0 0 0 0 0 0 ]
+ exposedField  SFString name             ""
+ eventIn       MFNode   addChildren
+ eventIn       MFNode   removeChildren
+]
+{
+  Group {
+    addChildren    IS addChildren
+    bboxCenter     IS bboxCenter
+    bboxSize       IS bboxSize
+    children       IS children
+    removeChildren IS removeChildren
+  }
+}
+
+PROTO Humanoid [
+ field        SFVec3f    bboxCenter       0 0 0
+ field        SFVec3f    bboxSize         -1 -1 -1
+ exposedField SFVec3f    center           0 0 0
+ exposedField MFNode     humanoidBody     [ ]
+ exposedField MFString   info             [ ]
+ exposedField MFNode     joints           [ ]
+ exposedField SFString   name             ""
+ exposedField SFRotation rotation         0 0 1 0
+ exposedField SFVec3f    scale            1 1 1
+ exposedField SFRotation scaleOrientation 0 0 1 0
+ exposedField MFNode     segments         [ ]
+ exposedField MFNode     sites            [ ]
+ exposedField SFVec3f    translation      0 0 0
+ exposedField SFString   version          "1.1"
+ exposedField MFNode     viewpoints       [ ]
+]
+{
+  Transform {
+    bboxCenter       IS bboxCenter
+    bboxSize         IS bboxSize
+    center           IS center
+    rotation         IS rotation
+    scale            IS scale
+    scaleOrientation IS scaleOrientation
+    translation      IS translation
+    children [
+      Group {
+        children IS viewpoints
+      }
+      Group {
+        children IS humanoidBody 
+      }
+    ]
+  }
+}
+
+PROTO VisionSensor [
+ exposedField SFVec3f    translation       0 0 0
+ exposedField SFRotation rotation          0 0 1 0
+ exposedField MFNode     children          [ ]
+ exposedField SFFloat    fieldOfView       0.785398
+ exposedField SFString   name              ""
+ exposedField SFFloat    frontClipDistance 0.01
+ exposedField SFFloat    backClipDistance  10.0
+ exposedField SFString   type              "NONE"
+ exposedField SFInt32    sensorId          -1
+ exposedField SFInt32    width             320
+ exposedField SFInt32    height            240
+ exposedField SFFloat    frameRate         30
+]
+{
+  Transform {
+    rotation    IS rotation
+    translation IS translation
+    children    IS children
+  }
+}
+
+
+PROTO ForceSensor [  
+ exposedField SFVec3f    maxForce    -1 -1 -1
+ exposedField SFVec3f    maxTorque   -1 -1 -1
+ exposedField SFVec3f    translation 0 0 0
+ exposedField SFRotation rotation    0 0 1 0
+ exposedField MFNode     children    [ ]
+ exposedField SFInt32    sensorId    -1
+]
+{
+  Transform {
+    translation IS translation
+    rotation    IS rotation
+    children    IS children
+  }
+}
+
+PROTO Gyro [
+ exposedField SFVec3f    maxAngularVelocity -1 -1 -1
+ exposedField SFVec3f    translation        0 0 0
+ exposedField SFRotation rotation           0 0 1 0
+ exposedField MFNode     children           [ ]
+ exposedField SFInt32    sensorId           -1
+]
+{
+  Transform {
+    translation IS translation
+    rotation    IS rotation
+    children    IS children
+  }
+}
+
+PROTO AccelerationSensor [
+ exposedField SFVec3f    maxAcceleration -1 -1 -1
+ exposedField SFVec3f    translation     0 0 0
+ exposedField SFRotation rotation        0 0 1 0
+ exposedField MFNode     children        [ ]
+ exposedField SFInt32    sensorId        -1
+]
+{
+  Transform {
+    translation IS translation
+    rotation    IS rotation
+    children    IS children
+  }
+}
+
+DEF 4legs_robot Humanoid{
+	humanoidBody[
+		DEF bodyframe1 Joint{
+			jointType "free"
+			rotation 0 1 0 3.14
+			translation 0 0 0
+			children[
+				DEF bodyframe1_LINK Segment{
+					mass 0.1
+					momentsOfInertia[
+					1 0 0
+					0 1 0
+					0 0 1
+					]
+					children[
+						Inline {url "parts/bodyframe1.wrl"}
+					]
+				}
+				DEF joint1 Joint{
+					jointType "rotate"
+					jointId 0
+					jointAxis 0 0 1
+					translation 0.017 0.0186 -0.015
+					children[
+						DEF joint1_LINK Segment{
+							mass 0
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/joint.wrl"}
+							]
+						}
+						DEF parts1 Joint{
+							jointType "free"
+							rotation 0 1 0 3.14
+							translation 0.001 0.001 -0.033
+							children[
+								DEF parts1_LINK Segment{
+									mass 0.1
+									momentsOfInertia[
+									1 0 0
+									0 1 0
+									0 0 1
+									]
+									children[
+										Inline {url "parts/parts1.wrl"}
+									]
+								}
+								DEF joint5 Joint{
+									jointType "rotate"
+									jointId 4
+									jointAxis 0 0 1
+									rotation 1 0 0 1.57
+									translation 0.0835 0.035 -0.012
+									children[
+										DEF join5_LINK Segment{
+											mass 0
+											momentsOfInertia[
+											1 0 0
+											0 1 0
+											0 0 1
+											]
+											children[
+												Inline {url "parts/joint.wrl"}
+											]
+										}
+										DEF parts5 Joint{
+											jointType "free"
+											rotation 1 0 0 -1.57
+											translation -0.0067 0.043 0.013
+											children[
+												DEF parts5_LINK Segment{
+													mass 0.1
+													momentsOfInertia[
+													1 0 0
+													0 1 0
+													0 0 1
+													]
+													children[
+														Inline {url "parts/parts2.wrl"}
+													]
+												}
+												DEF joint9 Joint{
+													jointType "rotate"
+													jointId 8
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation 0.0068 0.013 0.0435
+													children[
+														DEF joint9_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint.wrl"}
+															]
+														}
+														DEF parts9 Joint{
+															jointType "free"
+															rotation 0 0 1 3.14
+															translation 0.01 0.02 0.044
+															children[
+																DEF parts9_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/parts3.wrl"}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+				DEF joint2 Joint{
+					jointType "rotate"
+					jointId 1
+					jointAxis 0 0 1
+					translation 0.017 0.1086 -0.015
+					children[
+						DEF joint2_LINK Segment{
+							mass 0
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/joint.wrl"}
+							]
+						}
+						DEF parts2 Joint{
+							jointType "free"
+							rotation 0 1 0 3.14
+							translation 0.001 0.001 -0.033
+							children[
+								DEF parts2_LINK Segment{
+									mass 0.1
+									momentsOfInertia[
+									1 0 0
+									0 1 0
+									0 0 1
+									]
+									children[
+										Inline {url "parts/parts1.wrl"}
+									]
+								}
+								DEF joint6 Joint{
+									jointType "rotate"
+									jointId 5
+									jointAxis 0 0 1
+									rotation 1 0 0 1.57
+									translation 0.0835 0.035 -0.012
+									children[
+										DEF joint6_LINK Segment{
+											mass 0
+											momentsOfInertia[
+											1 0 0
+											0 1 0
+											0 0 1
+											]
+											children[
+												Inline {url "parts/joint.wrl"}
+											]
+										}
+										DEF parts6 Joint{
+											jointType "free"
+											rotation 1 0 0 -1.57
+											translation -0.0067 0.043 0.013
+											children[
+												DEF parts61_LINK Segment{
+													mass 0.1
+													momentsOfInertia[
+													1 0 0
+													0 1 0
+													0 0 1
+													]
+													children[
+														Inline {url "parts/parts2.wrl"}
+													]
+												}
+												DEF joint10 Joint{
+													jointType "rotate"
+													jointId 9
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation 0.0068 0.013 0.0435
+													children[
+														DEF joint10_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint.wrl"}
+															]
+														}
+														DEF parts10 Joint{
+															jointType "free"
+															rotation 0 0 1 3.14
+															translation 0.01 0.02 0.044
+															children[
+																DEF parts10_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/parts3.wrl"}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+				DEF joint3 Joint{
+					jointType "rotate"
+					jointId 2
+					jointAxis 0 0 1
+					translation 0.1073 0.0186 -0.015
+					children[
+						DEF joint3_LINK Segment{
+							mass 0
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/joint.wrl"}
+							]
+						}
+						DEF parts3 Joint{
+							jointType "free"
+							rotation 0 1 0 3.14
+							translation 0.001 0.001 -0.033
+							children[
+								DEF parts3_LINK Segment{
+									mass 0.1
+									momentsOfInertia[
+									1 0 0
+									0 1 0
+									0 0 1
+									]
+									children[
+										Inline {url "parts/parts1.wrl"}
+									]
+								}
+								DEF joint7 Joint{
+									jointType "rotate"
+									jointId 6
+									jointAxis 0 0 1
+									rotation 1 0 0 1.57
+									translation 0.0835 0.035 -0.012
+									children[
+										DEF joint7_LINK Segment{
+											mass 0
+											momentsOfInertia[
+											1 0 0
+											0 1 0
+											0 0 1
+											]
+											children[
+												Inline {url "parts/joint.wrl"}
+											]
+										}
+										DEF parts7 Joint{
+											jointType "free"
+											rotation 1 0 0 -1.57
+											translation -0.0067 0.043 0.013
+											children[
+												DEF parts7_LINK Segment{
+													mass 0.1
+													momentsOfInertia[
+													1 0 0
+													0 1 0
+													0 0 1
+													]
+													children[
+														Inline {url "parts/parts2.wrl"}
+													]
+												}
+												DEF joint11 Joint{
+													jointType "rotate"
+													jointId 10
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation 0.0068 0.013 0.0435
+													children[
+														DEF joint11_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint.wrl"}
+															]
+														}
+														DEF parts11 Joint{
+															jointType "free"
+															rotation 0 0 1 3.14
+															translation 0.01 0.02 0.044
+															children[
+																DEF parts11_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/parts3.wrl"}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+				DEF joint4 Joint{
+					jointType "rotate"
+					jointId 3
+					jointAxis 0 0 1
+					translation 0.1073 0.1086 -0.015
+					children[
+						DEF joint4_LINK Segment{
+							mass 0
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/joint.wrl"}
+							]
+						}
+						DEF parts4 Joint{
+							jointType "free"
+							rotation 0 1 0 3.14
+							translation 0.001 0.001 -0.033
+							children[
+								DEF parts4_LINK Segment{
+									mass 0.1
+									momentsOfInertia[
+									1 0 0
+									0 1 0
+									0 0 1
+									]
+									children[
+										Inline {url "parts/parts1.wrl"}
+									]
+								}
+								DEF joint8 Joint{
+									jointType "rotate"
+									jointId 7
+									jointAxis 0 0 1
+									rotation 1 0 0 1.57
+									translation 0.0835 0.035 -0.012
+									children[
+										DEF joint8_LINK Segment{
+											mass 0
+											momentsOfInertia[
+											1 0 0
+											0 1 0
+											0 0 1
+											]
+											children[
+												Inline {url "parts/joint.wrl"}
+											]
+										}
+										DEF parts8 Joint{
+											jointType "free"
+											rotation 1 0 0 -1.57
+											translation -0.0067 0.043 0.013
+											children[
+												DEF parts8_LINK Segment{
+													mass 0.1
+													momentsOfInertia[
+													1 0 0
+													0 1 0
+													0 0 1
+													]
+													children[
+														Inline {url "parts/parts2.wrl"}
+													]
+												}
+												DEF joint12 Joint{
+													jointType "rotate"
+													jointId 11
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation 0.0068 0.013 0.0435
+													children[
+														DEF joint12_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint.wrl"}
+															]
+														}
+														DEF parts12 Joint{
+															jointType "free"
+															rotation 0 0 1 3.14
+															translation 0.01 0.02 0.044
+															children[
+																DEF parts12_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/parts3.wrl"}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+				DEF bodyframe2 Joint{
+					jointType "free"
+					translation 0.0024 0.1252 -0.06
+					children[
+						DEF bodyframe2_LINK Segment{
+							mass 0.1
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+							 Inline {url "parts/bodyframe2.wrl"}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+	joints[
+		USE bodyframe1
+		USE joint1
+		USE joint2
+		USE joint3
+		USE joint4
+		USE parts1
+	]
+	segments[
+		USE bodyframe1_LINK
+		USE joint1_LINK
+		USE joint2_LINK
+		USE joint3_LINK
+		USE joint4_LINK
+		USE parts1_LINK
+	]
+}

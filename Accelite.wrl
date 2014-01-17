@@ -1,0 +1,1069 @@
+#VRML V2.0 utf8
+
+PROTO Joint [
+ exposedField SFVec3f    center           0 0 0
+ exposedField MFNode     children         []
+ exposedField MFFloat    llimit           []
+ exposedField MFFloat    lvlimit          []
+ exposedField SFRotation limitOrientation 0 0 1 0
+ exposedField SFString   name             ""
+ exposedField SFRotation rotation         0 0 1 0
+ exposedField SFVec3f    scale            1 1 1
+ exposedField SFRotation scaleOrientation 0 0 1 0
+ exposedField MFFloat    stiffness        [ 0 0 0 ]
+ exposedField SFVec3f    translation      0 0 0
+ exposedField MFFloat    ulimit           []
+ exposedField MFFloat    uvlimit          []
+ exposedField SFString   jointType        ""
+ exposedField SFInt32    jointId          -1
+ exposedField SFVec3f    jointAxis        0 0 1
+ exposedField SFFloat    gearRatio        1
+ exposedField SFFloat    rotorInertia     0
+ exposedField SFFloat    rotorResistor    0
+ exposedField SFFloat    torqueConst      1
+ exposedField SFFloat    encoderPulse     1
+]
+{
+  Transform {
+    center           IS center
+    children         IS children
+    rotation         IS rotation
+    scale            IS scale
+    scaleOrientation IS scaleOrientation
+    translation      IS translation
+  }
+}
+
+PROTO Segment [
+ field         SFVec3f  bboxCenter       0 0 0
+ field         SFVec3f  bboxSize         -1 -1 -1
+ exposedField  SFVec3f  centerOfMass     0 0 0
+ exposedField  MFNode   children         [ ]
+ exposedField  SFNode   coord            NULL
+ exposedField  MFNode   displacers       [ ]
+ exposedField  SFFloat  mass             0 
+ exposedField  MFFloat  momentsOfInertia [ 0 0 0 0 0 0 0 0 0 ]
+ exposedField  SFString name             ""
+ eventIn       MFNode   addChildren
+ eventIn       MFNode   removeChildren
+]
+{
+  Group {
+    addChildren    IS addChildren
+    bboxCenter     IS bboxCenter
+    bboxSize       IS bboxSize
+    children       IS children
+    removeChildren IS removeChildren
+  }
+}
+
+PROTO Humanoid [
+ field        SFVec3f    bboxCenter       0 0 0
+ field        SFVec3f    bboxSize         -1 -1 -1
+ exposedField SFVec3f    center           0 0 0
+ exposedField MFNode     humanoidBody     [ ]
+ exposedField MFString   info             [ ]
+ exposedField MFNode     joints           [ ]
+ exposedField SFString   name             ""
+ exposedField SFRotation rotation         0 0 1 0
+ exposedField SFVec3f    scale            1 1 1
+ exposedField SFRotation scaleOrientation 0 0 1 0
+ exposedField MFNode     segments         [ ]
+ exposedField MFNode     sites            [ ]
+ exposedField SFVec3f    translation      0 0 0
+ exposedField SFString   version          "1.1"
+ exposedField MFNode     viewpoints       [ ]
+]
+{
+  Transform {
+    bboxCenter       IS bboxCenter
+    bboxSize         IS bboxSize
+    center           IS center
+    rotation         IS rotation
+    scale            IS scale
+    scaleOrientation IS scaleOrientation
+    translation      IS translation
+    children [
+      Group {
+        children IS viewpoints
+      }
+      Group {
+        children IS humanoidBody 
+      }
+    ]
+  }
+}
+
+PROTO VisionSensor [
+ exposedField SFVec3f    translation       0 0 0
+ exposedField SFRotation rotation          0 0 1 0
+ exposedField MFNode     children          [ ]
+ exposedField SFFloat    fieldOfView       0.785398
+ exposedField SFString   name              ""
+ exposedField SFFloat    frontClipDistance 0.01
+ exposedField SFFloat    backClipDistance  10.0
+ exposedField SFString   type              "NONE"
+ exposedField SFInt32    sensorId          -1
+ exposedField SFInt32    width             320
+ exposedField SFInt32    height            240
+ exposedField SFFloat    frameRate         30
+]
+{
+  Transform {
+    rotation    IS rotation
+    translation IS translation
+    children    IS children
+  }
+}
+
+
+PROTO ForceSensor [  
+ exposedField SFVec3f    maxForce    -1 -1 -1
+ exposedField SFVec3f    maxTorque   -1 -1 -1
+ exposedField SFVec3f    translation 0 0 0
+ exposedField SFRotation rotation    0 0 1 0
+ exposedField MFNode     children    [ ]
+ exposedField SFInt32    sensorId    -1
+]
+{
+  Transform {
+    translation IS translation
+    rotation    IS rotation
+    children    IS children
+  }
+}
+
+PROTO Gyro [
+ exposedField SFVec3f    maxAngularVelocity -1 -1 -1
+ exposedField SFVec3f    translation        0 0 0
+ exposedField SFRotation rotation           0 0 1 0
+ exposedField MFNode     children           [ ]
+ exposedField SFInt32    sensorId           -1
+]
+{
+  Transform {
+    translation IS translation
+    rotation    IS rotation
+    children    IS children
+  }
+}
+
+PROTO AccelerationSensor [
+ exposedField SFVec3f    maxAcceleration -1 -1 -1
+ exposedField SFVec3f    translation     0 0 0
+ exposedField SFRotation rotation        0 0 1 0
+ exposedField MFNode     children        [ ]
+ exposedField SFInt32    sensorId        -1
+]
+{
+  Transform {
+    translation IS translation
+    rotation    IS rotation
+    children    IS children
+  }
+}
+
+DEF Accelite Humanoid{
+	humanoidBody[
+		DEF Body Joint{
+			jointType "free"
+			translation 0 0 0
+			children[
+				DEF Body_LINK Segment{
+					mass 0.1
+					momentsOfInertia[
+					1 0 0
+					0 1 0
+					0 0 1
+					]
+					children[
+						Inline {url "parts/Body.wrl"}
+					]
+				}
+				DEF 左股ヨー Joint{
+					jointType "rotate"
+					jointId 0
+					jointAxis 0 0 1
+					translation -0.0587 0.044 0.3205
+					children[
+						DEF 左股ヨー_LINK Segment{
+							mass 0
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/joint6.wrl"}
+							]
+						}
+						DEF HipL_Y Joint{
+							translation 0.0587 -0.042 -0.27
+							jointType "free"
+							children[
+								DEF HipL_Y_LINK Segment{
+									mass 0.1
+									momentsOfInertia[
+									1 0 0
+									0 1 0
+									0 0 1
+									]
+									children[
+										Inline {url "parts/HipL_Y.wrl"}
+									]
+								}
+								DEF 左股ロール Joint{
+									jointType "rotate"
+									jointId 1
+									jointAxis 0 0 1
+									rotation 0 1 0 1.57
+									translation -0.11 0.044 0.226
+									children[
+										DEF 左股ロール_LINK Segment{
+											mass 0
+											momentsOfInertia[
+											1 0 0
+											0 1 0
+											0 0 1
+											]
+											children[
+												Inline {url "parts/joint1.wrl"}
+											]
+										}
+										DEF HipL_P Joint{
+											jointType "free"
+											translation 0.2762 -0.044 0.11
+											rotation 0 1 0 -1.57
+											children[
+												DEF HipL_P_LINK Segment{
+													mass 0.1
+													momentsOfInertia[
+													1 0 0
+													0 1 0
+													0 0 1
+													]
+													children[
+														Inline {url "parts/HipL_P.wrl"}
+													]
+												}
+												
+												DEF 左股ピッチ後 Joint{
+													jointType "rotate"
+													jointId 3
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation -0.0835 0.077 0.276
+													children[
+														DEF 左股ピッチ後_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint2.wrl"}
+															]
+														}
+														DEF Thigh_L_R Joint{
+															jointType "free"
+															rotation 1 0 0 -1.57
+															translation 0.0835 -0.276 0.077 
+															children[
+																DEF Thigh_L_R_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/Thigh_L_R.wrl"}
+																	]
+																}
+															]
+														}
+													]
+												}
+												DEF 左股ピッチ前 Joint{
+													jointType "rotate"
+													jointId 2
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation -0.044 0.077 0.276
+													children[
+														DEF 左股ピッチ前_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint2.wrl"}
+															]
+														}
+														DEF ThighL_F Joint{
+															jointType "free"
+															rotation 1 0 0 -1.57
+															translation 0.044 -0.276 0.077 
+															children[
+																DEF ThighL_F_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/ThighL_F.wrl"}
+																	]
+																}
+																DEF 左膝ピッチ前1 Joint{
+																	jointType "rotate"
+																	jointId 4
+																	jointAxis 0 0 1
+																	rotation 1 0 0 1.57
+																	translation -0.044 0.073 0.171
+																	children[
+																		DEF 左膝ピッチ前1_LINK Segment{
+																			mass 0
+																			momentsOfInertia[
+																			1 0 0
+																			0 1 0
+																			0 0 1
+																			]
+																			children[
+																				Inline {url "parts/joint3.wrl"}
+																			]
+																		}
+																		DEF KneeL Joint{
+																			jointType "free"
+																			rotation 1 0 0 -1.57
+																			translation 0.044 -0.172 0.073 
+																			children[
+																				DEF KneeL_LINK Segment{
+																					mass 0.1
+																					momentsOfInertia[
+																					1 0 0
+																					0 1 0
+																					0 0 1
+																					]
+																					children[
+																						Inline {url "parts/KneeL.wrl"}
+																					]
+																				}
+																				DEF 左膝ピッチ後2 Joint{
+																					jointType "rotate"
+																					jointId 5
+																					jointAxis 0 0 1
+																					rotation 1 0 0 1.57
+																					translation -0.085 0.073 0.143
+																					children[
+																						DEF 左膝ピッチ後2_LINK Segment{
+																							mass 0
+																							momentsOfInertia[
+																							1 0 0
+																							0 1 0
+																							0 0 1
+																							]
+																							children[
+																								Inline {url "parts/joint4.wrl"}
+																							]
+																						}
+																						DEF ShinL_R Joint{
+																							jointType "free"
+																							rotation 1 0 0 -1.57
+																							translation 0.084 -0.15 0.073 
+																							children[
+																								DEF ShinL_R_LINK Segment{
+																									mass 0.1
+																									momentsOfInertia[
+																									1 0 0
+																									0 1 0
+																									0 0 1
+																									]
+																									children[
+																										Inline {url "parts/ShinL_R.wrl"}
+																									]
+																								}
+																							]
+																						}
+																					]
+																				}
+																				DEF 左膝ピッチ前2 Joint{
+																					jointType "rotate"
+																					jointId 6
+																					jointAxis 0 0 1
+																					rotation 1 0 0 1.57
+																					translation -0.044 0.073 0.143
+																					children[
+																						DEF 左膝ピッチ前2_LINK Segment{
+																							mass 0
+																							momentsOfInertia[
+																							1 0 0
+																							0 1 0
+																							0 0 1
+																							]
+																							children[
+																								Inline {url "parts/joint4.wrl"}
+																							]
+																						}
+																						DEF ShinL_F Joint{
+																							jointType "free"
+																							rotation 1 0 0 -1.57
+																							translation 0.043 -0.15 0.073 
+																							children[
+																								DEF ShinL_F_LINK Segment{
+																									mass 0.1
+																									momentsOfInertia[
+																									1 0 0
+																									0 1 0
+																									0 0 1
+																									]
+																									children[
+																										Inline {url "parts/ShinL_F.wrl"}
+																									]
+																								}
+																								DEF 左足首ピッチ Joint{
+																									jointType "rotate"
+																									jointId 7
+																									jointAxis 0 0 1
+																									rotation 1 0 0 1.57
+																									translation -0.044 0.073 0.0437
+																									children[
+																										DEF 左足首ピッチ_LINK Segment{
+																											mass 0
+																											momentsOfInertia[
+																											1 0 0
+																											0 1 0
+																											0 0 1
+																											]
+																											children[
+																												Inline {url "parts/joint5.wrl"}
+																											]
+																										}
+																										DEF AnkleL Joint{
+																											jointType "free"
+																											rotation 1 0 0 -1.57
+																											translation 0.044 -0.0437 0.0725
+																											children[
+																												DEF AnkleL_LINK Segment{
+																													mass 0.1
+																													momentsOfInertia[
+																													1 0 0
+																													0 1 0
+																													0 0 1
+																													]
+																													children[
+																														Inline {url "parts/AnkleL.wrl"}
+																													]
+																												}
+																												DEF 左足首ロール Joint{
+																													jointType "rotate"
+																													jointId 8
+																													jointAxis 0 0 1
+																													rotation 0 1 0 1.57
+																													translation -0.11 0.044 0.0433
+																													children[
+																														DEF 左足首ロール_LINK Segment{
+																															mass 0
+																															momentsOfInertia[
+																															1 0 0
+																															0 1 0
+																															0 0 1
+																															]
+																															children[
+																																Inline {url "parts/joint1.wrl"}
+																															]
+																														}
+																														DEF FootL Joint{
+																															jointType "free"
+																															rotation 0 1 0 -1.57
+																															translation 0.044 -0.044 0.11
+																															children[
+																																DEF FootL_LINK Segment{
+																																	mass 0.1
+																																	momentsOfInertia[
+																																	1 0 0
+																																	0 1 0
+																																	0 0 1
+																																	]
+																																	children[
+																																		Inline {url "parts/FootL.wrl"}
+																																	]
+																																}
+																															]
+																														}
+																													]
+																												}
+																											]
+																										}
+																									]
+																								}
+																							]
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+				DEF 右股ヨー Joint{
+					jointType "rotate"
+					jointId 9
+					jointAxis 0 0 1
+					translation -0.0588 -0.044 0.3205
+					children[
+						DEF 右股ヨー_LINK Segment{
+							mass 0
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/joint6.wrl"}
+							]
+						}
+						DEF HipR_Y Joint{
+							jointType "free"
+							translation 0.0587 0.042 -0.3205
+							children[
+								DEF HipL_Y_LINK Segment{
+									mass 0.1
+									momentsOfInertia[
+									1 0 0
+									0 1 0
+									0 0 1
+									]
+									children[
+										Inline {url "parts/HipR_Y.wrl"}
+									]
+								}
+								DEF 右股ロール Joint{
+									jointType "rotate"
+									jointId 10
+									jointAxis 0 0 1
+									rotation 0 1 0 1.57
+									translation -0.11 -0.044 0.2765
+									children[
+										DEF 右股ロール_LINK Segment{
+											mass 0
+											momentsOfInertia[
+											1 0 0
+											0 1 0
+											0 0 1
+											]
+											children[
+												Inline {url "parts/joint1.wrl"}
+											]
+										}
+										DEF HipR_P Joint{
+											jointType "free"
+											translation 0.2762 0.044 0.11
+											rotation 0 1 0 -1.57
+											children[
+												DEF HipR_P_LINK Segment{
+													mass 0.1
+													momentsOfInertia[
+													1 0 0
+													0 1 0
+													0 0 1
+													]
+													children[
+														Inline {url "parts/HipR_P.wrl"}
+													]
+												}
+												DEF 右股ピッチ後 Joint{
+													jointType "rotate"
+													jointId 12
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation -0.0835 -0.015 0.276
+													children[
+														DEF 右股ピッチ後_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint2.wrl"}
+															]
+														}
+														DEF Thigh_R_R Joint{
+															jointType "free"
+															rotation 1 0 0 -1.57
+															translation 0.0835 -0.276 -0.0152 
+															children[
+																DEF Thigh_R_R_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/Thigh_R_R.wrl"}
+																	]
+																}
+															]
+														}
+													]
+												}
+												DEF 右股ピッチ前 Joint{
+													jointType "rotate"
+													jointId 11
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation -0.044 -0.015 0.276
+													children[
+														DEF 右股ピッチ前_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint2.wrl"}
+															]
+														}
+														DEF ThighR_F Joint{
+															jointType "free"
+															rotation 1 0 0 -1.57
+															translation 0.044 -0.276 -0.0152
+															children[
+																DEF ThighR_F_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/ThighR_F.wrl"}
+																	]
+																}
+																DEF 右膝ピッチ前1 Joint{
+																	jointType "rotate"
+																	jointId 13
+																	jointAxis 0 0 1
+																	rotation 1 0 0 1.57
+																	translation -0.044 -0.018 0.171
+																	children[
+																		DEF 右膝ピッチ前1_LINK Segment{
+																			mass 0
+																			momentsOfInertia[
+																			1 0 0
+																			0 1 0
+																			0 0 1
+																			]
+																			children[
+																				Inline {url "parts/joint3.wrl"}
+																			]
+																		}
+																		DEF KneeR Joint{
+																			jointType "free"
+																			rotation 1 0 0 -1.57
+																			translation 0.044 -0.172 -0.0182
+																			children[
+																				DEF KneeR_LINK Segment{
+																					mass 0.1
+																					momentsOfInertia[
+																					1 0 0
+																					0 1 0
+																					0 0 1
+																					]
+																					children[
+																						Inline {url "parts/KneeR.wrl"}
+																					]
+																				}
+																				DEF 右膝ピッチ後2 Joint{
+																					jointType "rotate"
+																					jointId 14
+																					jointAxis 0 0 1
+																					rotation 1 0 0 1.57
+																					translation -0.085 -0.018 0.143
+																					children[
+																						DEF 右膝ピッチ後2_1_LINK Segment{
+																							mass 0
+																							momentsOfInertia[
+																							1 0 0
+																							0 1 0
+																							0 0 1
+																							]
+																							children[
+																								Inline {url "parts/joint3.wrl"}
+																							]
+																						}
+																						DEF ShinR_R Joint{
+																							jointType "free"
+																							rotation 1 0 0 -1.57
+																							translation 0.084 -0.15 -0.0182
+																							children[
+																								DEF ShinR_R_LINK Segment{
+																									mass 0.1
+																									momentsOfInertia[
+																									1 0 0
+																									0 1 0
+																									0 0 1
+																									]
+																									children[
+																										Inline {url "parts/ShinR_R.wrl"}
+																									]
+																								}
+																							]
+																						}
+																					]
+																				}
+																				DEF 右膝ピッチ前2 Joint{
+																					jointType "rotate"
+																					jointId 15
+																					jointAxis 0 0 1
+																					rotation 1 0 0 1.57
+																					translation -0.044 -0.018 0.143
+																					children[
+																						DEF 右膝ピッチ前2_LINK Segment{
+																							mass 0
+																							momentsOfInertia[
+																							1 0 0
+																							0 1 0
+																							0 0 1
+																							]
+																							children[
+																								Inline {url "parts/joint3.wrl"}
+																							]
+																						}
+																						DEF ShinR_F Joint{
+																							jointType "free"
+																							rotation 1 0 0 -1.57
+																							translation 0.043 -0.15 -0.0182
+																							children[
+																								DEF ShinR_F_LINK Segment{
+																									mass 0.1
+																									momentsOfInertia[
+																									1 0 0
+																									0 1 0
+																									0 0 1
+																									]
+																									children[
+																										Inline {url "parts/ShinR_F.wrl"}
+																									]
+																								}
+																								DEF 右足首ピッチ Joint{
+																									jointType "rotate"
+																									jointId 16
+																									jointAxis 0 0 1
+																									rotation 1 0 0 1.57
+																									translation -0.044 -0.018 0.0437
+																									children[
+																										DEF 右足首ピッチ_LINK Segment{
+																											mass 0
+																											momentsOfInertia[
+																											1 0 0
+																											0 1 0
+																											0 0 1
+																											]
+																											children[
+																												Inline {url "parts/joint3.wrl"}
+																											]
+																										}
+																										DEF AnkleR Joint{
+																											jointType "free"
+																											rotation 1 0 0 -1.57
+																											translation 0.044 -0.0437 -0.0175
+																											children[
+																												DEF AnkleR_LINK Segment{
+																													mass 0.1
+																													momentsOfInertia[
+																													1 0 0
+																													0 1 0
+																													0 0 1
+																													]
+																													children[
+																														Inline {url "parts/AnkleR.wrl"}
+																													]
+																												}
+																												DEF 右足首ロール Joint{
+																													jointType "rotate"
+																													jointId 17
+																													jointAxis 0 0 1
+																													rotation 0 1 0 1.57
+																													translation -0.11 -0.044 0.0433
+																													children[
+																														DEF 右足首ロール_LINK Segment{
+																															mass 0
+																															momentsOfInertia[
+																															1 0 0
+																															0 1 0
+																															0 0 1
+																															]
+																															children[
+																																Inline {url "parts/joint1.wrl"}
+																															]
+																														}
+																														DEF FootR Joint{
+																															jointType "free"
+																															rotation 0 1 0 -1.57
+																															translation 0.044 0.044 0.11
+																															children[
+																																DEF FootR_LINK Segment{
+																																	mass 0.1
+																																	momentsOfInertia[
+																																	1 0 0
+																																	0 1 0
+																																	0 0 1
+																																	]
+																																	children[
+																																		Inline {url "parts/FootR.wrl"}
+																																	]
+																																}
+																															]
+																														}
+																													]
+																												}
+																											]
+																										}
+																									]
+																								}
+																							]
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+				DEF 首ヨー Joint{
+					jointType "rotate"
+					jointId 18
+					jointAxis 0 0 1
+					translation -0.0674 0 0.45
+					children[
+						DEF joint15_LINK Segment{
+							mass 0
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/joint3.wrl"}
+							]
+						}
+						DEF Head Joint{
+							jointType "free"
+							translation 0.069 0 -0.45
+							children[
+								DEF Head_LINK Segment{
+									mass 0.1
+									momentsOfInertia[
+									1 0 0
+									0 1 0
+									0 0 1
+									]
+									children[
+										Inline {url "parts/Head.wrl"}
+									]
+								}
+							]
+						}
+					]
+				}
+				DEF 左肩ピッチ Joint{
+					jointType "rotate"
+					jointId 19
+					rotation 1 0 0 1.57
+					translation -0.0587 0.0829 0.4480
+					children[
+						DEF 左肩ピッチ_LINK Segment{
+							mass 0
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/joint16.wrl"}
+							]
+						}
+						DEF ShoulderL Joint{
+							jointType "free"
+							translation 0.059 -0.449 0.0830
+							children[
+								DEF ShoulderL_LINK Segment{
+									mass 0.1
+									momentsOfInertia[
+									1 0 0
+									0 1 0
+									0 0 1
+									]
+									children[
+										Inline {url "parts/ShoulderL.wrl"}
+									]
+								}
+								DEF 左肘ロール Joint{
+									jointType "rotate"
+									jointId 20
+									jointAxis 1 0 0
+									translation -0.084 0.401 -0.0787
+									children[
+										DEF 左肘ロール_LINK Segment{
+											mass 0
+											momentsOfInertia[
+											1 0 0
+											0 1 0
+											0 0 1
+											]
+											children[
+												Inline {url "parts/joint17.wrl"}
+											]
+										}
+										DEF ArmL Joint{
+											jointType "free"
+											translation 0.084 -0.401 0.0785
+											rotation 1 0 0 -1.57
+											children[
+												DEF ArmL_LINK Segment{
+													mass 0.1
+													momentsOfInertia[
+													1 0 0
+													0 1 0
+													0 0 1
+													]
+													children[
+														Inline {url "parts/ArmL.wrl"}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+				DEF 右肩ピッチ Joint{
+					jointType "rotate"
+					jointId 21
+					rotation 1 0 0 1.57
+					translation -0.0588 -0.0229 0.4480
+					children[
+						DEF 右肩ピッチ_LINK Segment{
+							mass 0
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/joint16.wrl"}
+							]
+						}
+						DEF ShoulderR Joint{
+							jointType "free"
+							translation 0.059 -0.449 -0.025
+							rotation 1 0 0 -1.57
+							children[
+								DEF ShoulderR_LINK Segment{
+									mass 0.1
+									momentsOfInertia[
+									1 0 0
+									0 1 0
+									0 0 1
+									]
+									children[
+										Inline {url "parts/ShoulderR.wrl"}
+									]
+								}
+								DEF 右肘ロール Joint{
+									jointType "rotate"
+									jointId 22
+									jointAxis 1 0 0
+									translation -0.0835 -0.084 0.4
+									children[
+										DEF 右肘ロール_LINK Segment{
+											mass 0
+											momentsOfInertia[
+											1 0 0
+											0 1 0
+											0 0 1
+											]
+											children[
+												Inline {url "parts/joint17.wrl"}
+											]
+										}
+										DEF ArmR Joint{
+											jointType "free"
+											translation 0.084 0.079 -0.401
+											children[
+												DEF ArmR_LINK Segment{
+													mass 0.1
+													momentsOfInertia[
+													1 0 0
+													0 1 0
+													0 0 1
+													]
+													children[
+														Inline {url "parts/ArmR.wrl"}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+	joints[
+		USE Body
+		USE HipL_Y
+		USE HipL_P
+		USE ThighL_F
+		USE KneeL
+		USE ShinL_F
+		USE AnkleL
+		USE FootL
+	]
+	segments[
+		USE Body_LINK
+		USE HipL_Y_LINK
+		USE HipL_P_LINK
+		USE ThighL_F_LINK
+		USE KneeL_LINK
+		USE ShinL_F_LINK
+		USE AnkleL_LINK
+		USE FootL_LINK
+	]
+}

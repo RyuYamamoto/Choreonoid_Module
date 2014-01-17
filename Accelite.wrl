@@ -246,44 +246,7 @@ DEF Accelite Humanoid{
 														Inline {url "parts/HipL_P.wrl"}
 													]
 												}
-												DEF 左股ピッチ前 Joint{
-													jointType "rotate"
-													jointId 2
-													jointAxis 0 0 1
-													rotation 1 0 0 1.57
-													translation -0.044 0.077 0.276
-													children[
-														DEF 左股ピッチ前_LINK Segment{
-															mass 0
-															momentsOfInertia[
-															1 0 0
-															0 1 0
-															0 0 1
-															]
-															children[
-																Inline {url "parts/joint2.wrl"}
-															]
-														}
-														DEF ThighL_F Joint{
-															jointType "free"
-															rotation 1 0 0 -1.57
-															translation 0.044 -0.276 0.077 
-															children[
-																DEF ThighL_F_LINK Segment{
-																	mass 0.1
-																	momentsOfInertia[
-																	1 0 0
-																	0 1 0
-																	0 0 1
-																	]
-																	children[
-																		Inline {url "parts/ThighL_F.wrl"}
-																	]
-																}
-															]
-														}
-													]
-												}
+												
 												DEF 左股ピッチ後 Joint{
 													jointType "rotate"
 													jointId 3
@@ -316,6 +279,44 @@ DEF Accelite Humanoid{
 																	]
 																	children[
 																		Inline {url "parts/Thigh_L_R.wrl"}
+																	]
+																}
+															]
+														}
+													]
+												}
+												DEF 左股ピッチ前 Joint{
+													jointType "rotate"
+													jointId 2
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation -0.044 0.077 0.276
+													children[
+														DEF 左股ピッチ前_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint2.wrl"}
+															]
+														}
+														DEF ThighL_F Joint{
+															jointType "free"
+															rotation 1 0 0 -1.57
+															translation 0.044 -0.276 0.077 
+															children[
+																DEF ThighL_F_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/ThighL_F.wrl"}
 																	]
 																}
 																DEF 左膝ピッチ前1 Joint{
@@ -586,44 +587,6 @@ DEF Accelite Humanoid{
 														Inline {url "parts/HipR_P.wrl"}
 													]
 												}
-												DEF 右股ピッチ前 Joint{
-													jointType "rotate"
-													jointId 11
-													jointAxis 0 0 1
-													rotation 1 0 0 1.57
-													translation -0.044 -0.015 0.276
-													children[
-														DEF 右股ピッチ前_LINK Segment{
-															mass 0
-															momentsOfInertia[
-															1 0 0
-															0 1 0
-															0 0 1
-															]
-															children[
-																Inline {url "parts/joint2.wrl"}
-															]
-														}
-														DEF ThighR_F Joint{
-															jointType "free"
-															rotation 1 0 0 -1.57
-															translation 0.044 -0.276 -0.0152
-															children[
-																DEF ThighR_F_LINK Segment{
-																	mass 0.1
-																	momentsOfInertia[
-																	1 0 0
-																	0 1 0
-																	0 0 1
-																	]
-																	children[
-																		Inline {url "parts/ThighR_F.wrl"}
-																	]
-																}
-															]
-														}
-													]
-												}
 												DEF 右股ピッチ後 Joint{
 													jointType "rotate"
 													jointId 12
@@ -656,6 +619,44 @@ DEF Accelite Humanoid{
 																	]
 																	children[
 																		Inline {url "parts/Thigh_R_R.wrl"}
+																	]
+																}
+															]
+														}
+													]
+												}
+												DEF 右股ピッチ前 Joint{
+													jointType "rotate"
+													jointId 11
+													jointAxis 0 0 1
+													rotation 1 0 0 1.57
+													translation -0.044 -0.015 0.276
+													children[
+														DEF 右股ピッチ前_LINK Segment{
+															mass 0
+															momentsOfInertia[
+															1 0 0
+															0 1 0
+															0 0 1
+															]
+															children[
+																Inline {url "parts/joint2.wrl"}
+															]
+														}
+														DEF ThighR_F Joint{
+															jointType "free"
+															rotation 1 0 0 -1.57
+															translation 0.044 -0.276 -0.0152
+															children[
+																DEF ThighR_F_LINK Segment{
+																	mass 0.1
+																	momentsOfInertia[
+																	1 0 0
+																	0 1 0
+																	0 0 1
+																	]
+																	children[
+																		Inline {url "parts/ThighR_F.wrl"}
 																	]
 																}
 																DEF 右膝ピッチ前1 Joint{

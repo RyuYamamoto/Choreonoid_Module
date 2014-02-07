@@ -20,11 +20,11 @@ items:
           data: 
             modelFile: "Accelite.wrl"
             currentBaseLink: "Body"
-            rootPosition: [  0.000000,  0.000000,  0.000000 ]
+            rootPosition: [ -0.000003, -0.000012, -0.004946 ]
             rootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
+               1.000000, -0.000001,  0.000555, 
+              -0.000000,  0.999997,  0.002352, 
+              -0.000555, -0.002352,  0.999997 ]
             jointPositions: [ 
                0.000000,  0.000000,  0.349066,  0.349066, -0.349066, -0.349066, -0.349066,  0.349066,  0.000000, 
                0.000000,  0.000000,  0.349066,  0.349066, -0.349066, -0.349066, -0.349066,  0.349066,  0.000000, 
@@ -43,16 +43,6 @@ items:
           children: 
             - 
               id: 3
-              name: "Accelite_Controller"
-              plugin: SimpleController
-              class: SimpleControllerItem
-              data: 
-                isImmediateMode: true
-                controller: ""
-                reloading: true
-                inputLinkPositions: false
-            - 
-              id: 4
               name: "Accelite_Motion"
               plugin: PoseSeq
               class: PoseSeqItem
@@ -60,7 +50,7 @@ items:
                 filename: "Accelite_Motion.pseq"
                 format: POSE-SEQ-YAML
         - 
-          id: 5
+          id: 4
           name: "Floor"
           plugin: Body
           class: BodyItem
@@ -81,7 +71,7 @@ items:
             zmp: [  0.000000,  0.000000,  0.000000 ]
             selfCollisionDetection: false
         - 
-          id: 6
+          id: 5
           name: "AISTSimulator"
           plugin: Body
           class: AISTSimulatorItem
@@ -105,9 +95,8 @@ items:
             2Dmode: false
 views: 
   "Items": 
-    selected: [ 4 ]
     checked: [ 2 ]
-    expanded: [ 1, 2 ]
+    expanded: [ 1, 2, 3, [ 3, "motion" ] ]
   "Scene": 
     walkthrough: false
     showCollisions: true
@@ -127,14 +116,14 @@ views:
     showFPS: false
     useBufferForPicking: true
     camera: 
-      current: Perspective
-      eye: [ 0.805028, -0.23717, 0.465968 ]
-      direction: [ -0.910015, 0.338748, -0.239005 ]
-      up: [ -0.223989, 0.0833787, 0.971018 ]
+      current: Orthographic
+      eye: [ 0.669673, -0.385498, 0.162666 ]
+      direction: [ -0.81594, 0.578025, -0.0113404 ]
+      up: [ -0.00925371, 0.00655548, 0.999936 ]
       fieldOfView: 0.6978
       near: 0.01
       far: 10000
-      orthoHeight: 1.00676
+      orthoHeight: 0.335121
     backgroundColor: [ 0.1, 0.1, 0.3 ]
     gridColor: [ 0.9, 0.9, 0.9, 1 ]
   "Multi Value Seq": 
@@ -233,7 +222,7 @@ views:
     keepAspectRatio: true
     keepOriginalSize: true
   "Pose Roll": 
-    currentPoseSeqItem: 4
+    currentPoseSeqItem: 3
     defaultTransitionTime: 0
     updateAll: true
     autoUpdate: false
@@ -249,7 +238,7 @@ toolbars:
     frameRate: 100
     playbackFrameRate: 50
     idleLoopDrivenMode: false
-    currentTime: 1.02
+    currentTime: 1.42
     speedScale: 1
     syncToOngoingUpdates: false
   "BodyBar": 

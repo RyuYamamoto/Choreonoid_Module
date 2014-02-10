@@ -180,7 +180,7 @@ DEF Accelite Humanoid{
 						Inline {url "parts/Body.wrl"}
 					]
 				}
-				DEF 左股ヨー Joint{
+				DEF L_thigh_yaw Joint{
 					jointType "rotate"
 					jointId 0
 					jointAxis 0 0 1
@@ -190,7 +190,7 @@ DEF Accelite Humanoid{
 					rotorInertia 1.0
 	 				rotorResistor 1.0
 					children[
-						DEF 左股ヨー_LINK Segment{
+						DEF L_thigh_yaw_LINK Segment{
 							mass 0.1
 							momentsOfInertia[
 							1 0 0
@@ -216,7 +216,7 @@ DEF Accelite Humanoid{
 										Inline {url "parts/HipL_Y.wrl"}
 									]
 								}
-								DEF 左股ロール Joint{
+								DEF L_thigh_roll Joint{
 									jointType "rotate"
 									jointId 1
 									jointAxis 0 0 1
@@ -227,7 +227,7 @@ DEF Accelite Humanoid{
 									rotorInertia 1.0
 					 				rotorResistor 1.0
 									children[
-										DEF 左股ロール_LINK Segment{
+										DEF L_thigh_roll_LINK Segment{
 											mass 0.1
 											momentsOfInertia[
 											1 0 0
@@ -255,7 +255,7 @@ DEF Accelite Humanoid{
 													]
 												}
 												
-												DEF 左股ピッチ後 Joint{
+												DEF L_thigh_pitch_back Joint{
 													jointType "rotate"
 													jointId 3
 													jointAxis 0 0 1
@@ -266,7 +266,7 @@ DEF Accelite Humanoid{
 													rotorInertia 1.0
 									 				rotorResistor 1.0
 													children[
-														DEF 左股ピッチ後_LINK Segment{
+														DEF L_thigh_pitch_back_LINK Segment{
 															mass 0.1
 															momentsOfInertia[
 															1 0 0
@@ -297,7 +297,7 @@ DEF Accelite Humanoid{
 														}
 													]
 												}
-												DEF 左股ピッチ前 Joint{
+												DEF L_thigh_pitch_front Joint{
 													jointType "rotate"
 													jointId 2
 													jointAxis 0 0 1
@@ -308,7 +308,7 @@ DEF Accelite Humanoid{
 													rotorInertia 1.0
 									 				rotorResistor 1.0
 													children[
-														DEF 左股ピッチ前_LINK Segment{
+														DEF L_thigh_pitch_front_LINK Segment{
 															mass 0.1
 															momentsOfInertia[
 															1 0 0
@@ -335,7 +335,7 @@ DEF Accelite Humanoid{
 																		Inline {url "parts/ThighL_F.wrl"}
 																	]
 																}
-																DEF 左膝ピッチ前1 Joint{
+																DEF L_knee_pitch_front1 Joint{
 																	jointType "rotate"
 																	jointId 4
 																	jointAxis 0 0 1
@@ -346,7 +346,7 @@ DEF Accelite Humanoid{
 																	rotorInertia 1.0
 													 				rotorResistor 1.0
 																	children[
-																		DEF 左膝ピッチ前1_LINK Segment{
+																		DEF L_knee_pitch_front1_LINK Segment{
 																			mass 0.1
 																			momentsOfInertia[
 																			1 0 0
@@ -373,7 +373,7 @@ DEF Accelite Humanoid{
 																						Inline {url "parts/KneeL.wrl"}
 																					]
 																				}
-																				DEF 左膝ピッチ後2 Joint{
+																				DEF L_knee_pitch_back2 Joint{
 																					jointType "rotate"
 																					jointId 5
 																					jointAxis 0 0 1
@@ -384,7 +384,7 @@ DEF Accelite Humanoid{
 																					rotorInertia 1.0
 																	 				rotorResistor 1.0
 																					children[
-																						DEF 左膝ピッチ後2_LINK Segment{
+																						DEF L_knee_pitch_back2_LINK Segment{
 																							mass 0.1
 																							momentsOfInertia[
 																							1 0 0
@@ -415,7 +415,7 @@ DEF Accelite Humanoid{
 																						}
 																					]
 																				}
-																				DEF 左膝ピッチ前2 Joint{
+																				DEF L_knee_pitch_front2 Joint{
 																					jointType "rotate"
 																					jointId 6
 																					jointAxis 0 0 1
@@ -426,7 +426,7 @@ DEF Accelite Humanoid{
 																					rotorInertia 1.0
 																	 				rotorResistor 1.0
 																					children[
-																						DEF 左膝ピッチ前2_LINK Segment{
+																						DEF L_knee_pitch_front2_LINK Segment{
 																							mass 0.1
 																							momentsOfInertia[
 																							1 0 0
@@ -453,7 +453,7 @@ DEF Accelite Humanoid{
 																										Inline {url "parts/ShinL_F.wrl"}
 																									]
 																								}
-																								DEF 左足首ピッチ Joint{
+																								DEF L_ankle_pitch Joint{
 																									jointType "rotate"
 																									jointId 7
 																									jointAxis 0 0 1
@@ -464,7 +464,7 @@ DEF Accelite Humanoid{
 																									rotorInertia 1.0
 																					 				rotorResistor 1.0
 																									children[
-																										DEF 左足首ピッチ_LINK Segment{
+																										DEF L_ankle_pitch_LINK Segment{
 																											mass 0.1
 																											momentsOfInertia[
 																											1 0 0
@@ -491,7 +491,7 @@ DEF Accelite Humanoid{
 																														Inline {url "parts/AnkleL.wrl"}
 																													]
 																												}
-																												DEF 左足首ロール Joint{
+																												DEF L_ankle_roll Joint{
 																													jointType "rotate"
 																													jointId 8
 																													jointAxis 0 0 1
@@ -502,7 +502,7 @@ DEF Accelite Humanoid{
 																													rotorInertia 1.0
 																									 				rotorResistor 1.0
 																													children[
-																														DEF 左足首ロール_LINK Segment{
+																														DEF L_ankle_roll_LINK Segment{
 																															mass 0.1
 																															momentsOfInertia[
 																															1 0 0
@@ -557,7 +557,7 @@ DEF Accelite Humanoid{
 						}
 					]
 				}
-				DEF 右股ヨー Joint{
+				DEF R_thigh_yaw Joint{
 					jointType "rotate"
 					jointId 9
 					jointAxis 0 0 1
@@ -567,7 +567,7 @@ DEF Accelite Humanoid{
 					rotorInertia 1.0
 	 				rotorResistor 1.0
 					children[
-						DEF 右股ヨー_LINK Segment{
+						DEF R_thigh_yaw_LINK Segment{
 							mass 0.1
 							momentsOfInertia[
 							1 0 0
@@ -582,7 +582,7 @@ DEF Accelite Humanoid{
 							jointType "rotate"
 							translation 0.0587 0.042 -0.3205
 							children[
-								DEF HipL_Y_LINK Segment{
+								DEF HipR_Y_LINK Segment{
 									mass 0.1
 									momentsOfInertia[
 									1 0 0
@@ -593,7 +593,7 @@ DEF Accelite Humanoid{
 										Inline {url "parts/HipR_Y.wrl"}
 									]
 								}
-								DEF 右股ロール Joint{
+								DEF R_thigh_roll Joint{
 									jointType "rotate"
 									jointId 10
 									jointAxis 0 0 1
@@ -604,7 +604,7 @@ DEF Accelite Humanoid{
 									rotorInertia 1.0
 					 				rotorResistor 1.0
 									children[
-										DEF 右股ロール_LINK Segment{
+										DEF R_thigh_roll_LINK Segment{
 											mass 0.1
 											momentsOfInertia[
 											1 0 0
@@ -631,7 +631,7 @@ DEF Accelite Humanoid{
 														Inline {url "parts/HipR_P.wrl"}
 													]
 												}
-												DEF 右股ピッチ後 Joint{
+												DEF R_thigh_pitch_back Joint{
 													jointType "rotate"
 													jointId 12
 													jointAxis 0 0 1
@@ -642,7 +642,7 @@ DEF Accelite Humanoid{
 													rotorInertia 1.0
 									 				rotorResistor 1.0
 													children[
-														DEF 右股ピッチ後_LINK Segment{
+														DEF R_thigh_pitch_back_LINK Segment{
 															mass 0.1
 															momentsOfInertia[
 															1 0 0
@@ -673,7 +673,7 @@ DEF Accelite Humanoid{
 														}
 													]
 												}
-												DEF 右股ピッチ前 Joint{
+												DEF R_thigh_pitch_front Joint{
 													jointType "rotate"
 													jointId 11
 													jointAxis 0 0 1
@@ -684,7 +684,7 @@ DEF Accelite Humanoid{
 													rotorInertia 1.0
 									 				rotorResistor 1.0
 													children[
-														DEF 右股ピッチ前_LINK Segment{
+														DEF R_thigh_pitch_front_LINK Segment{
 															mass 0.1
 															momentsOfInertia[
 															1 0 0
@@ -711,7 +711,7 @@ DEF Accelite Humanoid{
 																		Inline {url "parts/ThighR_F.wrl"}
 																	]
 																}
-																DEF 右膝ピッチ前1 Joint{
+																DEF R_knee_pitch_front1 Joint{
 																	jointType "rotate"
 																	jointId 13
 																	jointAxis 0 0 1
@@ -722,7 +722,7 @@ DEF Accelite Humanoid{
 																	rotorInertia 1.0
 													 				rotorResistor 1.0
 																	children[
-																		DEF 右膝ピッチ前1_LINK Segment{
+																		DEF R_knee_pitch_front1_LINK Segment{
 																			mass 0.1
 																			momentsOfInertia[
 																			1 0 0
@@ -749,7 +749,7 @@ DEF Accelite Humanoid{
 																						Inline {url "parts/KneeR.wrl"}
 																					]
 																				}
-																				DEF 右膝ピッチ後2 Joint{
+																				DEF R_knee_pitch_back2 Joint{
 																					jointType "rotate"
 																					jointId 14
 																					jointAxis 0 0 1
@@ -760,7 +760,7 @@ DEF Accelite Humanoid{
 																					rotorInertia 1.0
 																	 				rotorResistor 1.0
 																					children[
-																						DEF 右膝ピッチ後2_1_LINK Segment{
+																						DEF R_knee_pitch_back2_LINK Segment{
 																							mass 0.1
 																							momentsOfInertia[
 																							1 0 0
@@ -791,7 +791,7 @@ DEF Accelite Humanoid{
 																						}
 																					]
 																				}
-																				DEF 右膝ピッチ前2 Joint{
+																				DEF R_knee_pitch_front2 Joint{
 																					jointType "rotate"
 																					jointId 15
 																					jointAxis 0 0 1
@@ -802,7 +802,7 @@ DEF Accelite Humanoid{
 																					rotorInertia 1.0
 																	 				rotorResistor 1.0
 																					children[
-																						DEF 右膝ピッチ前2_LINK Segment{
+																						DEF R_knee_pitch_front2_LINK Segment{
 																							mass 0.1
 																							momentsOfInertia[
 																							1 0 0
@@ -829,7 +829,7 @@ DEF Accelite Humanoid{
 																										Inline {url "parts/ShinR_F.wrl"}
 																									]
 																								}
-																								DEF 右足首ピッチ Joint{
+																								DEF R_ankle_pitch Joint{
 																									jointType "rotate"
 																									jointId 16
 																									jointAxis 0 0 1
@@ -840,7 +840,7 @@ DEF Accelite Humanoid{
 																									rotorInertia 1.0
 																					 				rotorResistor 1.0
 																									children[
-																										DEF 右足首ピッチ_LINK Segment{
+																										DEF R_ankle_pitch_LINK Segment{
 																											mass 0.1
 																											momentsOfInertia[
 																											1 0 0
@@ -867,7 +867,7 @@ DEF Accelite Humanoid{
 																														Inline {url "parts/AnkleR.wrl"}
 																													]
 																												}
-																												DEF 右足首ロール Joint{
+																												DEF R_ankle_roll Joint{
 																													jointType "rotate"
 																													jointId 17
 																													jointAxis 0 0 1
@@ -878,7 +878,7 @@ DEF Accelite Humanoid{
 																													rotorInertia 1.0
 																									 				rotorResistor 1.0
 																													children[
-																														DEF 右足首ロール_LINK Segment{
+																														DEF R_ankle_roll_LINK Segment{
 																															mass 0.1
 																															momentsOfInertia[
 																															1 0 0
@@ -933,7 +933,7 @@ DEF Accelite Humanoid{
 						}
 					]
 				}
-				DEF 首ヨー Joint{
+				DEF Neck_yaw Joint{
 					jointType "rotate"
 					jointId 18
 					jointAxis 0 0 1
@@ -943,7 +943,7 @@ DEF Accelite Humanoid{
 					rotorInertia 1.0
 	 				rotorResistor 1.0
 					children[
-						DEF joint15_LINK Segment{
+						DEF Neck_yaw_LINK Segment{
 							mass 0.1
 							momentsOfInertia[
 							1 0 0
@@ -973,7 +973,7 @@ DEF Accelite Humanoid{
 						}
 					]
 				}
-				DEF 左肩ピッチ Joint{
+				DEF L_Shoulder_pitch Joint{
 					jointType "rotate"
 					jointId 19
 					rotation 1 0 0 1.57
@@ -983,7 +983,7 @@ DEF Accelite Humanoid{
 					rotorInertia 1.0
 	 				rotorResistor 1.0
 					children[
-						DEF 左肩ピッチ_LINK Segment{
+						DEF L_Shoulder_pitch_LINK Segment{
 							mass 0.1
 							momentsOfInertia[
 							1 0 0
@@ -1009,7 +1009,7 @@ DEF Accelite Humanoid{
 										Inline {url "parts/ShoulderL.wrl"}
 									]
 								}
-								DEF 左肘ロール Joint{
+								DEF L_elbow_roll Joint{
 									jointType "rotate"
 									jointId 20
 									jointAxis 1 0 0
@@ -1019,7 +1019,7 @@ DEF Accelite Humanoid{
 									rotorInertia 1.0
 					 				rotorResistor 1.0
 									children[
-										DEF 左肘ロール_LINK Segment{
+										DEF L_elbow_roll_LINK Segment{
 											mass 0.1
 											momentsOfInertia[
 											1 0 0
@@ -1054,7 +1054,7 @@ DEF Accelite Humanoid{
 						}
 					]
 				}
-				DEF 右肩ピッチ Joint{
+				DEF R_Shoulder_pitch Joint{
 					jointType "rotate"
 					jointId 21
 					rotation 1 0 0 1.57
@@ -1064,7 +1064,7 @@ DEF Accelite Humanoid{
 					rotorInertia 1.0
 	 				rotorResistor 1.0
 					children[
-						DEF 右肩ピッチ_LINK Segment{
+						DEF R_Shoulder_pitch_LINK Segment{
 							mass 0.1
 							momentsOfInertia[
 							1 0 0
@@ -1091,7 +1091,7 @@ DEF Accelite Humanoid{
 										Inline {url "parts/ShoulderR.wrl"}
 									]
 								}
-								DEF 右肘ロール Joint{
+								DEF R_elbow_roll Joint{
 									jointType "rotate"
 									jointId 22
 									jointAxis 1 0 0
@@ -1101,7 +1101,7 @@ DEF Accelite Humanoid{
 									rotorInertia 1.0
 					 				rotorResistor 1.0
 									children[
-										DEF 右肘ロール_LINK Segment{
+										DEF R_elbow_roll_LINK Segment{
 											mass 0.1
 											momentsOfInertia[
 											1 0 0
@@ -1135,7 +1135,124 @@ DEF Accelite Humanoid{
 						}
 					]
 				}
+				DEF backpack Joint{
+					jointType "rotate"
+					translation -0.124 0 0.41
+					rotation 0 0 1 -1.57
+					children[
+						DEF backpack Segment{
+							mass 0.077
+							momentsOfInertia[
+							1 0 0
+							0 1 0
+							0 0 1
+							]
+							children[
+								Inline {url "parts/backpack.wrl"}
+							]
+						}
+					]
+				}
 			]
 		}
+	]
+	
+	joints[
+		USE Body
+		USE L_thigh_yaw
+		USE HipL_Y
+		USE L_thigh_roll
+		USE HipL_P
+		USE L_thigh_pitch_back
+		USE ThighL_F
+		USE L_thigh_pitch_front
+		USE ThighL_F
+		USE L_knee_pitch_front1
+		USE KneeL
+		USE L_knee_pitch_back2
+		USE ShinL_R
+		USE L_knee_pitch_front2
+		USE ShinL_F
+		USE L_ankle_pitch
+		USE AnkleL
+		USE L_ankle_roll
+		USE FootL
+		USE R_thigh_yaw
+		USE HipR_Y
+		USE R_thigh_roll
+		USE HipR_P
+		USE R_thigh_pitch_back
+		USE ThighR_F
+		USE R_thigh_pitch_front
+		USE ThighR_F
+		USE R_knee_pitch_front1
+		USE KneeR
+		USE R_knee_pitch_back2
+		USE ShinR_R
+		USE R_knee_pitch_front2
+		USE ShinR_F
+		USE R_ankle_pitch
+		USE AnkleR
+		USE R_ankle_roll
+		USE FootR
+		USE Neck_yaw
+		USE Head
+		USE L_Shoulder_pitch
+		USE ShoulderL
+		USE L_elbow_roll
+		USE ArmL
+		USE R_Shoulder_pitch
+		USE ShoulderR
+		USE R_elbow_roll
+		USE ArmR
+	]
+	segments[
+		USE Body_LINK
+		USE L_thigh_yaw_LINK
+		USE HipL_Y_LINK
+		USE L_thigh_roll_LINK
+		USE HipL_P_LINK
+		USE L_thigh_pitch_back_LINK
+		USE ThighL_F_LINK
+		USE L_thigh_pitch_front_LINK
+		USE ThighL_F_LINK
+		USE L_knee_pitch_front1_LINK
+		USE KneeL_LINK
+		USE L_knee_pitch_back2_LINK
+		USE ShinL_R_LINK
+		USE L_knee_pitch_front2_LINK
+		USE ShinL_F_LINK
+		USE L_ankle_pitch_LINK
+		USE AnkleL_LINK
+		USE L_ankle_roll_LINK
+		USE FootL_LINK
+		USE R_thigh_yaw_LINK
+		USE HipR_Y_LINK
+		USE R_thigh_roll_LINK
+		USE HipR_P_LINK
+		USE R_thigh_pitch_back_LINK
+		USE ThighR_F_LINK
+		USE R_thigh_pitch_front_LINK
+		USE ThighR_F_LINK
+		USE R_knee_pitch_front1_LINK
+		USE KneeR_LINK
+		USE R_knee_pitch_back2_LINK
+		USE ShinR_R_LINK
+		USE R_knee_pitch_front2_LINK
+		USE ShinR_F_LINK
+		USE R_ankle_pitch_LINK
+		USE AnkleR_LINK
+		USE R_ankle_roll_LINK
+		USE FootR_LINK
+		USE Neck_yaw_LINK
+		USE Head_LINK
+		USE L_Shoulder_pitch_LINK
+		USE ShoulderL_LINK
+		USE L_elbow_roll_LINK
+		USE ArmL_LINK
+		USE R_Shoulder_pitch_LINK
+		USE ShoulderR_LINK
+		USE R_elbow_roll_LINK
+		USE ArmR_LINK
 	]
 }

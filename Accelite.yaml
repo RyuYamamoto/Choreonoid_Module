@@ -1,0 +1,78 @@
+modelFile: "Accelite.wrl"
+
+standardPose: [0,0,20,20,-20,-20,-20,20,0,0,0,20,20,-20,-20,-20,20,0,0,0,15,0,-15,0]
+
+linkGroup: 
+  - name: UPPER-BODY
+    links: 
+      - name: NECK
+        links: [ Neck_yaw ]
+      - name: ARMS
+        links:
+          - name: R-ARM
+            links: [ R_Shoulder_picth,R_elbow_pitch ]
+          - name: L-ARM
+            links: [ L_Shoulder_pitch,L_elbow_pitch ]
+      - name: CHEST
+        links: [ ]
+  - Body
+  - name: LOWER-BODY
+    links:
+      - name: LEGS
+        links:
+        - name: R-LEG
+          links: [ R_thigh_yaw,R_thigh_roll,R_thigh_pitch_front,R_thigh_pitch_back,R_knee_pitch_front1,R_knee_pitch_back2,R_knee_pitch_front2,R_ankle_pitch,R_ankle_roll ]
+        - name: L-LEG
+          links: [ L_thigh_yaw,L_thigh_roll,L_thigh_pitch_front,L_thigh_pitch_back,L_knee_pitch_front1,L_knee_pitch_back2,L_knee_pitch_front2,L_ankle_pitch,L_ankle_roll ]
+
+possibleIkInterpolationLinks: [ Body, FootR, FootL ]
+defaultIkInterpolationLinks: [Body,FootR,FootL]
+possileSupportLinks: [ FootR,FootL ]
+
+defaultIKsetup:
+  Body: [ FootR,FootL ]
+  FootR: [ Body ]
+  FootL: [ Body ]
+
+footLinks:
+  - link: FootR
+    soleCenter: [ -0.025,0.046,0.475 ]
+  - link: FootL
+    soleCenter: [ -0.025,-0.029,0.475 ]
+
+symmetricJoints:
+ - [Neck_yaw]
+ - [R_Shoulder_pitch,L_Shoulder_pitch,-1]
+ - [R_elbow_roll,L_elbow_roll,-1]
+ - [R_thigh_yaw,L_thigh_yaw,-1]
+ - [R_thigh_roll,L_thigh_roll,-1]
+ - [R_thigh_pitch_front,L_thigh_pitch_front,-1]
+ - [R_thigh_pitch_back,L_thigh_pitch_back,-1]
+ - [R_knee_pitch_front1,L_knee_pitch_front1,-1]
+ - [R_knee_pitch_back2,L_knee_pitch_back2,-1]
+ - [R_knee_pitch_front2,L_knee_pitch_front2,-1]
+ - [R_ankle_pitch,L_ankle_pitch,-1]
+ - [R_ankle_roll,L_ankle_roll,-1]
+
+symmetricIkLinks:
+  - [ Body]
+  - [ FootL,FootR ]
+
+divisionNumberOfPrimitiveGeometries: 47
+
+selfCollisionDetection:
+  excludeTreeDepth: 3
+  excludeLinks: [ ]
+
+
+poseConversionInfo:
+  - targetBodies: [ HRP4C ]
+    jointMap: [ 
+       0,  1,  2,  3,  4,  5,
+       7,  8,  9, 10, 11, 12,
+      12, -1, -1,
+      13, -1, -1,
+# faces
+      14, 15, -1, 16, -1, -1, -1, -1, -1,
+      17, 18, -1, 19, -1, -1, -1, -1, -1 ]
+    linkMap: { R_FOOT: FootR, L_FOOT: FootL }

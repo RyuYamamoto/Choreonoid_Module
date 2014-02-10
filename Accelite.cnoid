@@ -10,60 +10,23 @@ items:
       plugin: Body
       class: WorldItem
       data: 
-        collisionDetection: false
+        collisionDetection: true
       children: 
         - 
           id: 2
-          name: "Accelite"
-          plugin: Body
-          class: BodyItem
-          data: 
-            modelFile: "Accelite.wrl"
-            currentBaseLink: "Body"
-            rootPosition: [ -0.000003, -0.000012, -0.004946 ]
-            rootAttitude: [ 
-               1.000000, -0.000001,  0.000555, 
-              -0.000000,  0.999997,  0.002352, 
-              -0.000555, -0.002352,  0.999997 ]
-            jointPositions: [ 
-               0.000000,  0.000000,  0.349066,  0.349066, -0.349066, -0.349066, -0.349066,  0.349066,  0.000000, 
-               0.000000,  0.000000,  0.349066,  0.349066, -0.349066, -0.349066, -0.349066,  0.349066,  0.000000, 
-               0.000000,  0.000000,  0.174533,  0.000000, -0.174533 ]
-            initialRootPosition: [  0.000000,  0.000000,  0.000000 ]
-            initialRootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
-            initialJointPositions: [ 
-               0.000000,  0.000000,  0.349066,  0.349066, -0.349066, -0.349066, -0.349066,  0.349066,  0.000000, 
-               0.000000,  0.000000,  0.349066,  0.349066, -0.349066, -0.349066, -0.349066,  0.349066,  0.000000, 
-               0.000000,  0.000000,  0.174533,  0.000000, -0.174533 ]
-            zmp: [  0.000000,  0.000000,  0.000000 ]
-            selfCollisionDetection: false
-          children: 
-            - 
-              id: 3
-              name: "Accelite_Motion"
-              plugin: PoseSeq
-              class: PoseSeqItem
-              data: 
-                filename: "Accelite_Motion.pseq"
-                format: POSE-SEQ-YAML
-        - 
-          id: 4
           name: "Floor"
           plugin: Body
           class: BodyItem
           data: 
-            modelFile: "${SHARE}/model/misc/floor.wrl"
-            currentBaseLink: "BASE"
-            rootPosition: [  0.000000,  0.000000, -0.100000 ]
+            modelFile: "${SHARE}/model/misc/smallfloor.wrl"
+            currentBaseLink: ""
+            rootPosition: [  0.000000,  0.000000, -0.010000 ]
             rootAttitude: [ 
                1.000000,  0.000000,  0.000000, 
                0.000000,  1.000000,  0.000000, 
                0.000000,  0.000000,  1.000000 ]
             jointPositions: [  ]
-            initialRootPosition: [  0.000000,  0.000000, -0.100000 ]
+            initialRootPosition: [  0.000000,  0.000000, -0.010000 ]
             initialRootAttitude: [ 
                1.000000,  0.000000,  0.000000, 
                0.000000,  1.000000,  0.000000, 
@@ -71,7 +34,7 @@ items:
             zmp: [  0.000000,  0.000000,  0.000000 ]
             selfCollisionDetection: false
         - 
-          id: 5
+          id: 3
           name: "AISTSimulator"
           plugin: Body
           class: AISTSimulatorItem
@@ -82,7 +45,7 @@ items:
             timeLength: 60
             allLinkPositionOutputMode: false
             deviceStateRecording: true
-            dynamicsMode: Forward dynamics
+            dynamicsMode: High-gain dynamics
             integrationMode: Runge Kutta
             gravity: [ 0, 0, -9.80665 ]
             staticFriction: 1
@@ -90,16 +53,54 @@ items:
             cullingThresh: 0.005
             errorCriterion: 0.001
             maxNumIterations: 1000
-            contactCorrectionDepth: 0.0001
+            contactCorrectionDepth: 0.0005
             contactCorrectionVelocityRatio: 30
             2Dmode: false
+        - 
+          id: 4
+          name: "Accelite"
+          plugin: Body
+          class: BodyItem
+          data: 
+            modelFile: "../robocup/Meshファイル/Accelite.yaml"
+            currentBaseLink: "Body"
+            rootPosition: [  0.000000,  0.000000,  0.010000 ]
+            rootAttitude: [ 
+               1.000000,  0.000000,  0.000000, 
+               0.000000,  1.000000,  0.000000, 
+               0.000000,  0.000000,  1.000000 ]
+            jointPositions: [ 
+               0.000000,  0.000000,  0.349066,  0.349066, -0.349066, -0.349066, -0.349066,  0.349066,  0.000000, 
+               0.000000,  0.000000,  0.349066,  0.349066, -0.349066, -0.349066, -0.349066,  0.349066,  0.000000, 
+               0.000000,  0.000000,  0.261799,  0.000000, -0.261799 ]
+            initialRootPosition: [  0.000000,  0.000000,  0.010000 ]
+            initialRootAttitude: [ 
+               1.000000,  0.000000,  0.000000, 
+               0.000000,  1.000000,  0.000000, 
+               0.000000,  0.000000,  1.000000 ]
+            initialJointPositions: [ 
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
+            zmp: [  0.000000,  0.000000,  0.000000 ]
+            selfCollisionDetection: false
+          children: 
+            - 
+              id: 5
+              name: "Accelite_Motion"
+              plugin: PoseSeq
+              class: PoseSeqItem
+              data: 
+                filename: "Accelite_Motion.pseq"
+                format: POSE-SEQ-YAML
 views: 
   "Items": 
-    checked: [ 2 ]
-    expanded: [ 1, 2, 3, [ 3, "motion" ] ]
+    selected: [ 4 ]
+    checked: [ 1, 4 ]
+    expanded: [ 1, 4, 5, [ 5, "motion" ] ]
   "Scene": 
     walkthrough: false
-    showCollisions: true
+    showCollisions: false
     wireframe: false
     defaultHeadLight: true
     defaultHeadLightIntensity: 0.75
@@ -108,22 +109,22 @@ views:
     worldLightAmbient: 0.3
     additionalLights: true
     floorGrid: true
-    floorGridSpan: 10
-    floorGridInterval: 0.5
+    floorGridSpan: 2
+    floorGridInterval: 0.05
     normalVisualization: false
     normalLength: 0.01
     coordinateAxes: true
     showFPS: false
     useBufferForPicking: true
     camera: 
-      current: Orthographic
-      eye: [ 0.669673, -0.385498, 0.162666 ]
-      direction: [ -0.81594, 0.578025, -0.0113404 ]
-      up: [ -0.00925371, 0.00655548, 0.999936 ]
+      current: Perspective
+      eye: [ 0.915804, -0.238113, 0.764056 ]
+      direction: [ -0.840897, 0.332314, -0.427152 ]
+      up: [ -0.397256, 0.156992, 0.90418 ]
       fieldOfView: 0.6978
       near: 0.01
       far: 10000
-      orthoHeight: 0.335121
+      orthoHeight: 0.323817
     backgroundColor: [ 0.1, 0.1, 0.3 ]
     gridColor: [ 0.9, 0.9, 0.9, 1 ]
   "Multi Value Seq": 
@@ -167,7 +168,7 @@ views:
     visibleElements: [ 0, 1, 2 ]
   "Links": 
     listingMode: "Link List"
-    currentBodyItem: 2
+    currentBodyItem: 4
   "Body / Link": 
     showRotationMatrix: false
   "Joint Sliders": 
@@ -178,7 +179,7 @@ views:
     spinBox: true
     slider: true
     labelOnLeft: true
-    currentBodyItem: 2
+    currentBodyItem: 4
   "Joint Trajectories": 
     mode: view
     editMode: freeLine
@@ -222,7 +223,6 @@ views:
     keepAspectRatio: true
     keepOriginalSize: true
   "Pose Roll": 
-    currentPoseSeqItem: 3
     defaultTransitionTime: 0
     updateAll: true
     autoUpdate: false
@@ -234,25 +234,25 @@ views:
 toolbars: 
   "TimeBar": 
     minTime: 0
-    maxTime: 30
+    maxTime: 15
     frameRate: 100
-    playbackFrameRate: 50
+    playbackFrameRate: 100
     idleLoopDrivenMode: false
-    currentTime: 1.42
+    currentTime: 0
     speedScale: 1
     syncToOngoingUpdates: false
   "BodyBar": 
-    current: 2
+    current: 4
     stanceWidth: 0.15
   "BodyMotionGenerationBar": 
-    balancer: false
-    autoGeneration: false
+    balancer: true
+    autoGeneration: true
     timeScaleRatio: 1
     preInitialDuration: 1
     postFinalDuration: 1
-    onlyTimeBarRange: false
+    onlyTimeBarRange: true
     makeNewBodyItem: true
-    stealthyStepMode: true
+    stealthyStepMode: false
     stealthyHeightRatioThresh: 2
     flatLiftingHeight: 0.005
     flatLandingHeight: 0.005
@@ -263,13 +263,13 @@ toolbars:
     zmpCenteringTimeThresh: 0.03
     zmpTimeMarginBeforeLiftingSpin: 0
     zmpMaxDistanceFromCenter: 0.02
-    allLinkPositions: false
+    allLinkPositions: true
     lipSyncMix: false
     timeToStartBalancer: 0
     balancerIterations: 2
     plainBalancerMode: false
     boundaryConditionType: position
-    boundarySmootherType: quintic
+    boundarySmootherType: off
     boundarySmootherTime: 0.5
     boundaryCmAdjustment: false
     boundaryCmAdjustmentTime: 1
@@ -278,11 +278,11 @@ toolbars:
     dynamicsTimeRatio: 1
   "KinematicsBar": 
     mode: AUTO
-    attitude: false
+    attitude: true
     penetrationBlock: true
-    collisionLinkHighlight: false
+    collisionLinkHighlight: true
     snapDistance: 0.025
-    penetrationBlockDepth: 0.0005
+    penetrationBlockDepth: 0.0001
     lazyCollisionDetectionMode: true
 Base: 
   "MovieGenerator": 

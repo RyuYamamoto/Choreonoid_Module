@@ -167,15 +167,15 @@ DEF Ball Humanoid{
 	humanoidBody[
 		DEF Ball Joint{
 			jointType "free"
-			translation 0 0 0
+			translation 0 0 0.05
 			children[
 				DEF Ball_LINK Segment{
-					centerOfMass 0 0.050 0
-					mass 0.486947
+					centerOfMass 0 0 0
+					mass 0.101551
 					momentsOfInertia[
-					0.00048694686 0 0
-					0 0.00048694686 0
-					0 0 0.00048694686
+					0.000157192738 0 0
+					0 0.000157192738 0
+					0 0 0.000157192738
 					]
 					children[
 						Inline {url "vrml files/Ball.wrl"}

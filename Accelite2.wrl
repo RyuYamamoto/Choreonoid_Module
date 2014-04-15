@@ -171,12 +171,12 @@ DEF Accelite Humanoid{
 			translation 0 0 0.32
 			children[
 				DEF Body_LINK Segment{
-					centerOfMass 0.076683 -0.016298 0.056683
-					mass 1.263555
+					centerOfMass 0.085489 -0.016401 0.057140
+					mass 0.592890
 					momentsOfInertia[
-					0.00445045316 2.525194e-06 8.7342525e-05
-					2.525194e-06 0.00342078561 6.397559e-06
-					8.7342525e-05 6.397559e-06 0.00333664311
+					2.509260243e-03 -1.68e-07 1.66120691e-04
+					-1.68e-07 2.045348291e-03 7.68812e-07
+					1.66120691e-04 7.68812e-07 2.021731435e-03
 					]
 					children[
 						Inline {url "vrml files/Body.wrl"}
@@ -257,8 +257,8 @@ DEF Accelite Humanoid{
 													centerOfMass 0.093105 0.028164 -0.049826
 													mass 0.175821
 													momentsOfInertia[
-													5.0337725e-05 1.798503e-06 -3.80994e-07
-													1.798503e-06 0.000124274043 1.71713e-07
+													5.0337725e-05 -1.798503e-06 -3.80994e-07
+													-1.798503e-06 0.000124274043 1.71713e-07
 													-3.80994e-07 1.71713e-07 0.000125026339
 													]
 													children[
@@ -1320,7 +1320,7 @@ DEF Accelite Humanoid{
 							children[
 								DEF Body_LINK Segment{
 									centerOfMass 0.105769 -0.014946 0.189604
-									mass 0.093196
+									mass 0.09319
 									momentsOfInertia[
 									0.00333664311 -4.943658e-06 -9.397194e-06
 									-4.943658e-06  5.7642224e-05 -6.12947e-07

@@ -14,6 +14,27 @@ items:
       children: 
         - 
           id: 2
+          name: "Floor"
+          plugin: Body
+          class: BodyItem
+          data: 
+            modelFile: "${SHARE}/model/misc/smallfloor.wrl"
+            currentBaseLink: ""
+            rootPosition: [  0.000000,  0.000000, -0.010000 ]
+            rootAttitude: [ 
+               1.000000,  0.000000,  0.000000, 
+               0.000000,  1.000000,  0.000000, 
+               0.000000,  0.000000,  1.000000 ]
+            jointPositions: [  ]
+            initialRootPosition: [  0.000000,  0.000000, -0.010000 ]
+            initialRootAttitude: [ 
+               1.000000,  0.000000,  0.000000, 
+               0.000000,  1.000000,  0.000000, 
+               0.000000,  0.000000,  1.000000 ]
+            zmp: [  0.000000,  0.000000,  0.000000 ]
+            selfCollisionDetection: false
+        - 
+          id: 3
           name: "AISTSimulator"
           plugin: Body
           class: AISTSimulatorItem
@@ -24,7 +45,7 @@ items:
             timeLength: 60
             allLinkPositionOutputMode: false
             deviceStateRecording: true
-            dynamicsMode: Forward dynamics
+            dynamicsMode: High-gain dynamics
             integrationMode: Runge Kutta
             gravity: [ 0, 0, -9.80665 ]
             staticFriction: 1
@@ -32,54 +53,35 @@ items:
             cullingThresh: 0.005
             errorCriterion: 0.001
             maxNumIterations: 1000
-            contactCorrectionDepth: 0.0001
+            contactCorrectionDepth: 0.0005
             contactCorrectionVelocityRatio: 30
             2Dmode: false
-        - 
-          id: 3
-          name: "Floor"
-          plugin: Body
-          class: BodyItem
-          data: 
-            modelFile: "${SHARE}/model/misc/floor.wrl"
-            currentBaseLink: "BASE"
-            rootPosition: [  0.000000,  0.000000, -0.100000 ]
-            rootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
-            jointPositions: [  ]
-            initialRootPosition: [  0.000000,  0.000000, -0.100000 ]
-            initialRootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
-            zmp: [  0.000000,  0.000000,  0.000000 ]
-            selfCollisionDetection: false
         - 
           id: 4
           name: "Accelite"
           plugin: Body
           class: BodyItem
           data: 
-            modelFile: "Accelite2.wrl"
-            currentBaseLink: "Foot_R"
-            rootPosition: [ -0.125013,  0.341564, -0.015912 ]
+            modelFile: "Accelite.yaml"
+            currentBaseLink: "Foot_L"
+            rootPosition: [  0.002433, -0.001105,  0.307111 ]
             rootAttitude: [ 
-               0.032777,  0.680438, -0.732072, 
-              -0.032146,  0.732804,  0.679680, 
-               0.998946,  0.001255,  0.045893 ]
+               1.000000,  0.000000,  0.000000, 
+               0.000000,  1.000000,  0.000000, 
+               0.000000,  0.000000,  1.000000 ]
             jointPositions: [ 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
-            initialRootPosition: [  0.000000,  0.000000,  0.030000 ]
+               0.000000,  0.000000,  0.000000, -0.349066, -0.349066,  0.349066,  0.349066,  0.349066,  0.349066, 
+               0.000000,  0.000000,  0.000000,  0.000000, -0.349066,  0.349066, -0.349066,  0.349066,  0.349066, 
+              -0.349066,  0.000000,  0.000000, -0.261799,  0.000000,  0.261799,  0.000000 ]
+            initialRootPosition: [  0.000000,  0.000000,  0.320000 ]
             initialRootAttitude: [ 
                1.000000,  0.000000,  0.000000, 
                0.000000,  1.000000,  0.000000, 
                0.000000,  0.000000,  1.000000 ]
             initialJointPositions: [ 
-               0.000000 ]
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
             zmp: [  0.000000,  0.000000,  0.000000 ]
             selfCollisionDetection: false
           children: 
@@ -99,13 +101,13 @@ items:
           data: 
             modelFile: "Ball.wrl"
             currentBaseLink: "Ball"
-            rootPosition: [  0.153489, -0.256977,  0.097299 ]
+            rootPosition: [  0.264425,  0.034275,  0.049900 ]
             rootAttitude: [ 
-               0.612553,  0.236398,  0.754251, 
-              -0.724888, -0.212441,  0.655290, 
-               0.315143, -0.948148,  0.041230 ]
+               1.000000,  0.000000,  0.000000, 
+               0.000000,  1.000000,  0.000000, 
+               0.000000,  0.000000,  1.000000 ]
             jointPositions: [  ]
-            initialRootPosition: [  0.000000,  0.000000,  0.000000 ]
+            initialRootPosition: [  0.000000,  0.000000,  0.050000 ]
             initialRootAttitude: [ 
                1.000000,  0.000000,  0.000000, 
                0.000000,  1.000000,  0.000000, 
@@ -114,12 +116,12 @@ items:
             selfCollisionDetection: false
 views: 
   "Items": 
-    selected: [ 4, 6, 2 ]
-    checked: [ 3, 4, 6 ]
-    expanded: [ 1, 4, [ 5, "motion" ], 6 ]
+    selected: [ 1 ]
+    checked: [ 1, 4, 6 ]
+    expanded: [ 1, 4 ]
   "Scene": 
     walkthrough: false
-    showCollisions: true
+    showCollisions: false
     wireframe: false
     defaultHeadLight: true
     defaultHeadLightIntensity: 0.75
@@ -128,8 +130,8 @@ views:
     worldLightAmbient: 0.3
     additionalLights: true
     floorGrid: true
-    floorGridSpan: 10
-    floorGridInterval: 0.5
+    floorGridSpan: 2
+    floorGridInterval: 0.05
     normalVisualization: false
     normalLength: 0.01
     coordinateAxes: true
@@ -137,13 +139,13 @@ views:
     useBufferForPicking: true
     camera: 
       current: Perspective
-      eye: [ 0.979227, 1.03539, 0.53622 ]
-      direction: [ -0.590424, -0.734398, -0.334752 ]
-      up: [ -0.209746, -0.260893, 0.942306 ]
+      eye: [ 1.41135, -0.334907, 0.517708 ]
+      direction: [ -0.879775, 0.337546, -0.334751 ]
+      up: [ -0.312537, 0.119912, 0.942307 ]
       fieldOfView: 0.6978
       near: 0.01
       far: 10000
-      orthoHeight: 14.1479
+      orthoHeight: 0.323817
     backgroundColor: [ 0.1, 0.1, 0.3 ]
     gridColor: [ 0.9, 0.9, 0.9, 1 ]
   "Multi Value Seq": 
@@ -188,15 +190,11 @@ views:
   "Links": 
     listingMode: "Link List"
     currentBodyItem: 4
-    bodyItems: 
-      - 
-        id: 4
-        selectedLinks: [ 10 ]
   "Body / Link": 
     showRotationMatrix: false
   "Joint Sliders": 
     showAllJoints: true
-    jointId: false
+    jointId: true
     name: true
     numColumns: 1
     spinBox: true
@@ -258,11 +256,11 @@ views:
 toolbars: 
   "TimeBar": 
     minTime: 0
-    maxTime: 30
+    maxTime: 15
     frameRate: 100
-    playbackFrameRate: 50
+    playbackFrameRate: 100
     idleLoopDrivenMode: false
-    currentTime: 30.01
+    currentTime: 0
     speedScale: 1
     syncToOngoingUpdates: false
   "BodyBar": 
@@ -270,21 +268,21 @@ toolbars:
     stanceWidth: 0.15
   "KinematicsBar": 
     mode: FK
-    attitude: false
+    attitude: true
     penetrationBlock: true
-    collisionLinkHighlight: false
+    collisionLinkHighlight: true
     snapDistance: 0.025
-    penetrationBlockDepth: 0.0005
+    penetrationBlockDepth: 0.0001
     lazyCollisionDetectionMode: true
   "BodyMotionGenerationBar": 
-    balancer: false
-    autoGeneration: false
+    balancer: true
+    autoGeneration: true
     timeScaleRatio: 1
     preInitialDuration: 1
     postFinalDuration: 1
-    onlyTimeBarRange: false
+    onlyTimeBarRange: true
     makeNewBodyItem: true
-    stealthyStepMode: true
+    stealthyStepMode: false
     stealthyHeightRatioThresh: 2
     flatLiftingHeight: 0.005
     flatLandingHeight: 0.005
@@ -295,13 +293,13 @@ toolbars:
     zmpCenteringTimeThresh: 0.03
     zmpTimeMarginBeforeLiftingSpin: 0
     zmpMaxDistanceFromCenter: 0.02
-    allLinkPositions: false
+    allLinkPositions: true
     lipSyncMix: false
     timeToStartBalancer: 0
     balancerIterations: 2
     plainBalancerMode: false
     boundaryConditionType: position
-    boundarySmootherType: quintic
+    boundarySmootherType: off
     boundarySmootherTime: 0.5
     boundaryCmAdjustment: false
     boundaryCmAdjustmentTime: 1

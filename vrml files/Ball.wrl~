@@ -11,13 +11,13 @@ Background
 }
 Transform
 {
-scale             0.01 0.01 0.01
+scale             1 1 1
 rotation          0 0 1 0
 scaleOrientation  0 0 1 0
-#bboxCenter        0 0 0
-#bboxSize      10.000 9.999 10.000
-#center        0.000  0.000  0.000
-#translation  0.000  0.000  0.000
+bboxCenter        0 0 0
+bboxSize      10.000 9.999 10.000
+center        0.000  0.000  0.000
+translation  0.000  0.000  0.000
 children
 [
 Shape
@@ -27,7 +27,7 @@ Shape
     material Material
     {
       ambientIntensity 0.2
-      diffuseColor      1.00 0.36862745098039215686274509803922 0.09803921568627450980392156862745
+      diffuseColor      0.00 0.00 0.00
       emissiveColor     0.00 0.00 0.00
       specularColor     0.98 0.98 0.98
       shininess        0.06

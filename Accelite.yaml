@@ -13,8 +13,6 @@ linkGroup:
             links: [ Shoulder_R_picth,Hand_R ]
           - name: L-ARM
             links: [ Shoulder_L_picth,Hand_L ]
-      - name: CHEST
-        links: [ ]
   - Body
   - name: LOWER-BODY
     links:

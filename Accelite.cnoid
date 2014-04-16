@@ -63,12 +63,12 @@ items:
           class: BodyItem
           data: 
             modelFile: "Accelite.yaml"
-            currentBaseLink: "Foot_L"
-            rootPosition: [  0.002433, -0.001105,  0.307111 ]
+            currentBaseLink: "Foot_R"
+            rootPosition: [  0.032178,  0.004565,  0.305466 ]
             rootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
+               0.998846, -0.039450, -0.027391, 
+               0.039297,  0.999209, -0.006096, 
+               0.027610,  0.005013,  0.999606 ]
             jointPositions: [ 
                0.000000,  0.000000,  0.000000, -0.349066, -0.349066,  0.349066,  0.349066,  0.349066,  0.349066, 
                0.000000,  0.000000,  0.000000,  0.000000, -0.349066,  0.349066, -0.349066,  0.349066,  0.349066, 
@@ -93,32 +93,11 @@ items:
               data: 
                 filename: "Accelite_motion.pseq"
                 format: POSE-SEQ-YAML
-        - 
-          id: 6
-          name: "Ball"
-          plugin: Body
-          class: BodyItem
-          data: 
-            modelFile: "Ball.wrl"
-            currentBaseLink: "Ball"
-            rootPosition: [  0.264425,  0.034275,  0.049900 ]
-            rootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
-            jointPositions: [  ]
-            initialRootPosition: [  0.000000,  0.000000,  0.050000 ]
-            initialRootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
-            zmp: [  0.000000,  0.000000,  0.000000 ]
-            selfCollisionDetection: false
 views: 
   "Items": 
-    selected: [ 1 ]
-    checked: [ 1, 4, 6 ]
-    expanded: [ 1, 4 ]
+    selected: [ 3, 4 ]
+    checked: [ 1, 2, 4 ]
+    expanded: [ 1, 4, [ 5, "motion" ] ]
   "Scene": 
     walkthrough: false
     showCollisions: false
@@ -139,9 +118,9 @@ views:
     useBufferForPicking: true
     camera: 
       current: Perspective
-      eye: [ 1.41135, -0.334907, 0.517708 ]
-      direction: [ -0.879775, 0.337546, -0.334751 ]
-      up: [ -0.312537, 0.119912, 0.942307 ]
+      eye: [ 0.371853, -0.926009, 0.2017 ]
+      direction: [ -0.0774486, 0.995675, -0.0513189 ]
+      up: [ -0.00397982, 0.0511643, 0.998682 ]
       fieldOfView: 0.6978
       near: 0.01
       far: 10000
@@ -190,6 +169,10 @@ views:
   "Links": 
     listingMode: "Link List"
     currentBodyItem: 4
+    bodyItems: 
+      - 
+        id: 4
+        selectedLinks: [ 0 ]
   "Body / Link": 
     showRotationMatrix: false
   "Joint Sliders": 
@@ -250,7 +233,7 @@ views:
     autoUpdate: false
     timeSync: true
     listingMode: "Part Tree"
-    timeLength: 10
+    timeLength: 12
     showLipSync: false
     gridInterval: 1
 toolbars: 
@@ -260,7 +243,7 @@ toolbars:
     frameRate: 100
     playbackFrameRate: 100
     idleLoopDrivenMode: false
-    currentTime: 0
+    currentTime: 12.49
     speedScale: 1
     syncToOngoingUpdates: false
   "BodyBar": 

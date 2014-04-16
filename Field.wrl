@@ -1,0 +1,206 @@
+#VRML V2.0 utf8
+
+PROTO Joint [
+ exposedField SFVec3f    center           0 0 0
+ exposedField MFNode     children         []
+ exposedField MFFloat    llimit           []
+ exposedField MFFloat    lvlimit          []
+ exposedField SFRotation limitOrientation 0 0 1 0
+ exposedField SFString   name             ""
+ exposedField SFRotation rotation         0 0 1 0
+ exposedField SFVec3f    scale            1 1 1
+ exposedField SFRotation scaleOrientation 0 0 1 0
+ exposedField MFFloat    stiffness        [ 0 0 0 ]
+ exposedField SFVec3f    translation      0 0 0
+ exposedField MFFloat    ulimit           []
+ exposedField MFFloat    uvlimit          []
+ exposedField SFString   jointType        ""
+ exposedField SFInt32    jointId          -1
+ exposedField SFVec3f    jointAxis        0 0 1
+ exposedField SFFloat    gearRatio        1
+ exposedField SFFloat    rotorInertia     0
+ exposedField SFFloat    rotorResistor    0
+ exposedField SFFloat    torqueConst      1
+ exposedField SFFloat    encoderPulse     1
+]
+{
+  Transform {
+    center           IS center
+    children         IS children
+    rotation         IS rotation
+    scale            IS scale
+    scaleOrientation IS scaleOrientation
+    translation      IS translation
+  }
+}
+
+PROTO Segment [
+ field         SFVec3f  bboxCenter       0 0 0
+ field         SFVec3f  bboxSize         -1 -1 -1
+ exposedField  SFVec3f  centerOfMass     0 0 0
+ exposedField  MFNode   children         [ ]
+ exposedField  SFNode   coord            NULL
+ exposedField  MFNode   displacers       [ ]
+ exposedField  SFFloat  mass             0 
+ exposedField  MFFloat  momentsOfInertia [ 0 0 0 0 0 0 0 0 0 ]
+ exposedField  SFString name             ""
+ eventIn       MFNode   addChildren
+ eventIn       MFNode   removeChildren
+]
+{
+  Group {
+    addChildren    IS addChildren
+    bboxCenter     IS bboxCenter
+    bboxSize       IS bboxSize
+    children       IS children
+    removeChildren IS removeChildren
+  }
+}
+
+PROTO Humanoid [
+ field        SFVec3f    bboxCenter       0 0 0
+ field        SFVec3f    bboxSize         -1 -1 -1
+ exposedField SFVec3f    center           0 0 0
+ exposedField MFNode     humanoidBody     [ ]
+ exposedField MFString   info             [ ]
+ exposedField MFNode     joints           [ ]
+ exposedField SFString   name             ""
+ exposedField SFRotation rotation         0 0 1 0
+ exposedField SFVec3f    scale            1 1 1
+ exposedField SFRotation scaleOrientation 0 0 1 0
+ exposedField MFNode     segments         [ ]
+ exposedField MFNode     sites            [ ]
+ exposedField SFVec3f    translation      0 0 0
+ exposedField SFString   version          "1.1"
+ exposedField MFNode     viewpoints       [ ]
+]
+{
+  Transform {
+    bboxCenter       IS bboxCenter
+    bboxSize         IS bboxSize
+    center           IS center
+    rotation         IS rotation
+    scale            IS scale
+    scaleOrientation IS scaleOrientation
+    translation      IS translation
+    children [
+      Group {
+        children IS viewpoints
+      }
+      Group {
+        children IS humanoidBody 
+      }
+    ]
+  }
+}
+
+PROTO VisionSensor [
+ exposedField SFVec3f    translation       0 0 0
+ exposedField SFRotation rotation          0 0 1 0
+ exposedField MFNode     children          [ ]
+ exposedField SFFloat    fieldOfView       0.785398
+ exposedField SFString   name              ""
+ exposedField SFFloat    frontClipDistance 0.01
+ exposedField SFFloat    backClipDistance  10.0
+ exposedField SFString   type              "NONE"
+ exposedField SFInt32    sensorId          -1
+ exposedField SFInt32    width             320
+ exposedField SFInt32    height            240
+ exposedField SFFloat    frameRate         30
+]
+{
+  Transform {
+    rotation    IS rotation
+    translation IS translation
+    children    IS children
+  }
+}
+
+
+PROTO ForceSensor [  
+ exposedField SFVec3f    maxForce    -1 -1 -1
+ exposedField SFVec3f    maxTorque   -1 -1 -1
+ exposedField SFVec3f    translation 0 0 0
+ exposedField SFRotation rotation    0 0 1 0
+ exposedField MFNode     children    [ ]
+ exposedField SFInt32    sensorId    -1
+]
+{
+  Transform {
+    translation IS translation
+    rotation    IS rotation
+    children    IS children
+  }
+}
+
+PROTO Gyro [
+ exposedField SFVec3f    maxAngularVelocity -1 -1 -1
+ exposedField SFVec3f    translation        0 0 0
+ exposedField SFRotation rotation           0 0 1 0
+ exposedField MFNode     children           [ ]
+ exposedField SFInt32    sensorId           -1
+]
+{
+  Transform {
+    translation IS translation
+    rotation    IS rotation
+    children    IS children
+  }
+}
+
+PROTO AccelerationSensor [
+ exposedField SFVec3f    maxAcceleration -1 -1 -1
+ exposedField SFVec3f    translation     0 0 0
+ exposedField SFRotation rotation        0 0 1 0
+ exposedField MFNode     children        [ ]
+ exposedField SFInt32    sensorId        -1
+]
+{
+  Transform {
+    translation IS translation
+    rotation    IS rotation
+    children    IS children
+  }
+}
+
+DEF Field Humanoid{
+	humanoidBody[
+		DEF Field_Green Joint{
+			jointType "fixed"
+			translation 5 -4 0
+			rotation 1 0 0 1.57
+			children[
+				DEF Field_Green_LINK Segment{
+					mass 1
+					centerOfMass -51.991416 0.125000 -36.991090
+					momentsOfInertia[
+					456.322441195 0 1e-12
+					0 1353.82073213 0
+					1e-12 0 897.508707605
+					]
+					children[
+						Inline {url "vrml files/Green.wrl"}
+					]
+				}
+				DEF Filed_White Joint{
+					jointType "fixed"
+					translation -10.3983 0 -7.3982
+					children[
+						DEF Filed_White_LINK Segment{
+							mass 0.5
+							centerOfMass 51.991416 0.125000 36.991090
+							momentsOfInertia[
+							228.412722499 0 -2e-12
+							0 737.001739215 0
+							-2e-12 0 508.594225049
+							]
+							children[
+								Inline {url "vrml files/White.wrl"}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

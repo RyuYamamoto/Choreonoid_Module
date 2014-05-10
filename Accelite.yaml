@@ -1,27 +1,27 @@
-modelFile: "Accelite2.wrl"
+modelFile: "Accelite3.wrl"
 
-standardPose: [0,0,0,-20,-20,20,20,20,20,0,0,0,0,-20,20,-20,20,20,-20,0,0,-15,0,15,0]
+standardPose: []
 
 linkGroup: 
   - name: UPPER-BODY
     links: 
       - name: NECK
-        links: [ Neck_yaw ]
+        links: [ Head ]
       - name: ARMS
         links:
           - name: R-ARM
-            links: [ Shoulder_R_picth,Hand_R ]
+            links: [ Shoulder_R,Hand_R ]
           - name: L-ARM
-            links: [ Shoulder_L_picth,Hand_L ]
+            links: [ Shoulder_L,Hand_L ]
   - Body
   - name: LOWER-BODY
     links:
       - name: LEGS
         links:
         - name: R-LEG
-          links: [ Hip_yaw_R,Hip_roll_R,Hip_pitch_front1_R,Hip_pitch_back_R,Hip_pitch_front2_R,Knee_pitch_front_R,Knee_pitch_back_R,Knee_pitch_front1_R,Ankle_pitch_front_R,Ankle_roll_R ]
+          links: [HipY_R,ServoBoxThigt_R,PrallelThigt_R,ParallelFrame_Up_Front_R,ServoBoxKnee_R,ParallelFrame_Down_Front_R,ServoBoxAnkle_R,Foot_R ]
         - name: L-LEG
-          links: [ Hip_yaw_L,Hip_roll_L,Hip_pitch_front1_L,Hip_pitch_back_L,Hip_pitch_front2_L,Knee_pitch_front_L,Knee_pitch_back_L,Knee_pitch_front1_L,Ankle_pitch_front_L,Ankle_roll_L ]
+          links: [HipY_L,ServoBoxThigt_L,PrallelThigt_L,ParallelFrame_Up_Front_L,ServoBoxKnee_L,ParallelFrame_Down_Front_L,ServoBoxAnkle_L,Foot_L ]
 
 possibleIkInterpolationLinks: [ Body, Foot_R, Foot_L ]
 defaultIkInterpolationLinks: [Body,Foot_R,Foot_L]
@@ -34,30 +34,30 @@ defaultIKsetup:
 
 footLinks:
   - link: Foot_R
-    soleCenter: [ -0.005, -0.01, -0.022 ]
+    soleCenter: [ -0.05, -0.015, -0.022 ]
   - link: Foot_L
-    soleCenter: [  -0.005,  0.01, -0.022 ]
+    soleCenter: [ -0.05, 0.007, -0.022 ]
 
 symmetricJoints:
- - [Neck_yaw]
- - [Shoulder_R_picth,Shoulder_L_picth,-1]
- - [Hand_RHand_L,-1]
- - [Hip_yaw_R,Hip_yaw_L,-1]
- - [Hip_roll_R,Hip_roll_L,-1]
- - [Hip_pitch_front1_R,Hip_pitch_front1_L,-1]
- - [Hip_pitch_back_R,Hip_pitch_back_L,-1]
- - [Hip_pitch_front2_R,Hip_pitch_front2_L,-1]
- - [Knee_pitch_front_R,Knee_pitch_front_L,-1]
- - [Knee_pitch_back_R,Knee_pitch_back_L,-1]
- - [Knee_pitch_front1_R,Knee_pitch_front1_L,-1]
- - [Ankle_pitch_front_R,Ankle_pitch_front_L,-1]
- - [Ankle_roll_R,Ankle_roll_L,-1]
-
+ - [Head]
+ - [Shoulder_R,Shoulder_L,-1]
+ - [Hand_R,Hand_L,-1]
+ - [Hip_R,Hip_L,-1]
+ - [PrallelThigt_R,PrallelThigt_L,-1]
+ - [ParallelFrame_Up_Front_R,ParallelFrame_Up_Front_L,-1]
+ - [ServoBoxKnee_R,ServoBoxKnee_L,-1]
+ - [ParalleFrame_Down_Front_R,ParalleFrame_Down_Front_L,-1]
+ - [ServoBoxAnkle_R,ServoBoxAnkle_L,-1]
+ - [Foot_R,Foot_L,-1]
+ - [Shoulder_R,Shoulder_L,-1]
+ - [Hand_R,Hand_L,-1]
+ - [ParallelFrame_Up_Back_R,ParallelFrame_Up_Back_L,-1]
+ - [ParallelFrame_Down_Back_R,ParallelFrame_Down_Back_L,-1]
 symmetricIkLinks:
   - [ Body]
   - [ Foot_L,Foot_R ]
 
-divisionNumberOfPrimitiveGeometries: 51
+divisionNumberOfPrimitiveGeometries: 26
 
 poseConversionInfo:
   - targetBodies: [ HRP4C ]
@@ -69,4 +69,4 @@ poseConversionInfo:
 # faces
       14, 15, -1, 16, -1, -1, -1, -1, -1,
       17, 18, -1, 19, -1, -1, -1, -1, -1 ]
-    linkMap: { R_FOOT: FootR, L_FOOT: FootL }
+    linkMap: { R_FOOT: Foot_R, L_FOOT: Foot_L }

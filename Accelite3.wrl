@@ -226,7 +226,7 @@ DEF Accelite3 Humanoid{
       llimit [0.0 0.0 ]
       children[
         DEF Body_LINK Segment{
-          centerOfMass -0.076683 -0.01666666298 0.056683 
+          centerOfMass 0.076683 -0.01666666298 0.056683 
           mass 0.5928900000000022 
           momentsOfInertia [ 
 	  0.002509260243000008 -1.68E-7 1.6612069100000002E-4
@@ -253,12 +253,12 @@ DEF Accelite3 Humanoid{
           rotorResistor 1.0
           children[
             DEF HipY_L_LINK Segment{
-              centerOfMass 0.171495 -0.045898 -0.069823 
+              centerOfMass 0 0.000002 -0.008193 
 	      mass 0.012659
               momentsOfInertia [
-	      3.582325E-6 6.8835E-8 -7.09E-10
-	      6.8835E-8 1.8586107E-5 1.7E-11
-	      -7.09E-10 1.7E-11 1.7616355E-5 
+	      1.8586423E-5 -2.4E-11 1.3E-11
+	      -2.4E-11 3.582009E-6 7.09E-10
+	      1.3E-11 7.09E-10 1.7616355E-5
 	      ]
               children[
                 Transform {
@@ -280,7 +280,8 @@ DEF Accelite3 Humanoid{
               rotorResistor 1.0
               children[
                 DEF ServoBoxThigt_L_LINK Segment{
-                  centerOfMass 0.171954 -0.45108 -0.110026 
+		  centerOfMass 0.043454 0.009396 0.000791
+                  #centerOfMass 0.171954 -0.45108 -0.110026 
 		  mass 0.086312 
                   momentsOfInertia [ 
 		  2.3345407E-5  -1.109456E-6 -1.25795E-7
@@ -307,7 +308,8 @@ DEF Accelite3 Humanoid{
                   rotorResistor 1.0
                   children[
                     DEF PrallelThigt_L_LINK Segment{
-                      centerOfMass 0.150147 -0.044363 -0.115591 
+                      centerOfMass 0.040456 -0.014961 -0.023964
+		      #centerOfMass 0.150147 -0.044363 -0.115591 
 		      mass 0.010054
                       momentsOfInertia [ 
 		      9.27308E-6 -1.23E-10 -2.964484E-6
@@ -334,7 +336,8 @@ DEF Accelite3 Humanoid{
                       rotorResistor 1.0
                       children[
                         DEF ParallelFrame_Up_Front_L_LINK Segment{
-                          centerOfMass 0.2038634 -0.044534 -0.158010  
+                          centerOfMass 0.013262 -0.057380 0.030908
+			  #centerOfMass 0.2038634 -0.044534 -0.158010  
 			  mass 0.011093 
                           momentsOfInertia [ 
 			  1.7352685E-5 -3.1301E-8 6.93104E-7
@@ -360,7 +363,8 @@ DEF Accelite3 Humanoid{
                           rotorResistor 1.0
                           children[
                             DEF ServoBoxKnee_L_LINK Segment{
-                              centerOfMass 0.177177 -0.045956 -0.208958
+			      centerOfMass -0.003328 0.013419 0.024532
+                              #centerOfMass 0.177177 -0.045956 -0.208958
 			      mass 0.055501 
                               momentsOfInertia [ 
 			      2.3878876E-5 -2.74213E-7 -1.027587E-6
@@ -387,7 +391,8 @@ DEF Accelite3 Humanoid{
                               rotorResistor 1.0
                               children[
                                 DEF ParallelFrame_Down_Front_L_LINK Segment{
-                                  centerOfMass 0.206249 -0.044557 -0.277898
+                                  centerOfMass 0.049268 -0.015646 0.027500
+				  #centerOfMass 0.206249 -0.044557 -0.277898
 				  mass 0.012518 
                                   momentsOfInertia [ 
 				  1.7387702E-5 -2.4344E-8  -6.06990E-7
@@ -414,7 +419,8 @@ DEF Accelite3 Humanoid{
                                   rotorResistor 1.0
                                   children[
                                     DEF ServoBoxAnkle_L_LINK Segment{
-                                      centerOfMass 0.171959 -0.046223 -0.324414
+                                      centerOfMass -0.018635 0.009216 0.024823
+				      #centerOfMass 0.171959 -0.046223 -0.324414
                                       mass 0.087022 
                                       momentsOfInertia [ 
 				      2.3656321E-5 -1.095189E-6 1.18983E-7
@@ -441,7 +447,8 @@ DEF Accelite3 Humanoid{
                                       rotorResistor 1.0
                                       children[
                                         DEF Foot_L_LINK Segment{
-                                          centerOfMass 0.175167 -0.042041 -0.372552 
+                                          centerOfMass -0.004973 -0.038922 0.044347
+					  #centerOfMass 0.175167 -0.042041 -0.372552 
                                           mass 0.044971
                                           momentsOfInertia [
 					  2.4842387E-5 2.934568E-6 6.10836E-7
@@ -474,7 +481,8 @@ DEF Accelite3 Humanoid{
                               rotorResistor 1.0
                               children[
                                 DEF ParallelFrame_Down_Back_L_LINK Segment{
-                                  centerOfMass  0.141154 -0.044558 -0.285539
+                                  centerOfMass -0.048799 0.000967 0.027800
+				  #centerOfMass  0.141154 -0.044558 -0.285539
                                   mass 0.009626
                                   momentsOfInertia[ 
 				  1.4416187E-5 -2.2424E-8 -2.29198E-7
@@ -507,8 +515,9 @@ DEF Accelite3 Humanoid{
                       rotorResistor 1.0
                       children[
                         DEF ParallelFrame_Up_Back_L_LINK Segment{
-                          centerOfMass 0.141154 -0.04458 -0.285539
-                          mass 0.009626
+                          centerOfMass 0.019197 -0.053993 -0.029446
+			  #centerOfMass 0.141154 -0.04458 -0.285539
+                          mass 0.008512
                           momentsOfInertia [ 
 			  1.4416187E-5 -2.2424E-8 -2.29198E-7
 			  -2.2424E-8 9.526273E-6 1.058E-9
@@ -542,12 +551,13 @@ DEF Accelite3 Humanoid{
           rotorResistor 1.0
           children[
             DEF HipY_R_LINK Segment{
-              centerOfMass 0.171495 -0.133897 -0.069823 
+              centerOfMass 0 0.000002 -0.008193
+	      #centerOfMass 0.171495 -0.133897 -0.069823 
 	      mass 0.012659
               momentsOfInertia [
-	      3.582325E-6 6.8835E-8 7.09E-10
-	      6.8835E-8 1.8586107E-5 -1.7E-11
-	      7.09E-10 -1.7E-11 1.7616355E-5 
+	      1.8586423E-5 -2.4E-11 1.3E-11
+	      -2.4E-11 3.582009E-6 7.09E-10
+	      1.3E-11 7.09E-10 1.7616355E-5
 	      ]
               children[
                 Transform {
@@ -569,7 +579,8 @@ DEF Accelite3 Humanoid{
               rotorResistor 1.0
               children[
                 DEF ServoBoxThigt_R_LINK Segment{
-                  centerOfMass 0.171543 0.134690 -0.110026
+		  centerOfMass 0.043454 0.009396 -0.000791
+                  #centerOfMass 0.171543 0.134690 -0.110026
 		  mass 0.086312
                   momentsOfInertia [ 
 		  2.3368761E-5 1.436689E-6 -1.26107E-7
@@ -596,7 +607,8 @@ DEF Accelite3 Humanoid{
                   rotorResistor 1.0
                   children[
                     DEF PrallelThigt_R_LINK Segment{
-                      centerOfMass 0.149730 -0.135262 -0.115591
+                      centerOfMass 0.040456 -0.014961 -0.023964
+		      #centerOfMass 0.149730 -0.135262 -0.115591
 		      mass 0.010054
                       momentsOfInertia [ 
 		      9.273080E-6 -1.23E-10 -2.964484E-6
@@ -623,7 +635,8 @@ DEF Accelite3 Humanoid{
                       rotorResistor 1.0
                       children[
                         DEF ParallelFrame_Up_Front_R_LINK Segment{
-                          centerOfMass 0.203447 -0.135433 -0.158010 
+                          centerOfMass 0.013262 -0.057380 0.030908
+			  #centerOfMass 0.203447 -0.135433 -0.158010 
 			  mass 0.011093 
                           momentsOfInertia [ 
 			  1.7352685E-5 -3.1301E-8 6.93104E-7
@@ -650,7 +663,8 @@ DEF Accelite3 Humanoid{
                           rotorResistor 1.0
                           children[
                             DEF ServoBoxKnee_R_LINK Segment{
-                              centerOfMass 0.176774 -0.133791 -0.208958
+                              centerOfMass 0.003328 0.013419 0.024532
+			      #centerOfMass 0.176774 -0.133791 -0.208958
 			      mass 0.055501 
                               momentsOfInertia [ 
 			      2.3884004E-5 2.84925E-7 -1.024803E-6
@@ -677,7 +691,8 @@ DEF Accelite3 Humanoid{
                               rotorResistor 1.0
                               children[
                                 DEF ParallelFrame_Down_Front_R_LINK Segment{
-                                  centerOfMass 0.205832 -0.135456 -0.277898 
+                                 centerOfMass 0.049268 -0.015646 0.027500
+				 # centerOfMass 0.205832 -0.135456 -0.277898 
                                   mass 0.012518 
                                   momentsOfInertia [ 
 				  1.7387702E-5 -2.4344E-8 -6.06990E-7 
@@ -704,7 +719,8 @@ DEF Accelite3 Humanoid{
                                   rotorResistor 1.0
                                   children[
                                     DEF ServoBoxAnkle_R_LINK Segment{
-                                      centerOfMass 0.171548 -0.133490 -0.324234
+                                       centerOfMass 0.043454 0.009396 0.000791
+				      #centerOfMass 0.171548 -0.133490 -0.324234
                                       mass 0.086312 
                   		      momentsOfInertia [ 
 		  		      2.3345407E-5  -1.109456E-6 -1.25795E-7
@@ -731,7 +747,8 @@ DEF Accelite3 Humanoid{
                                       rotorResistor 1.0
                                       children[
                                         DEF Foot_R_LINK Segment{
-                                          centerOfMass 0.174690 -0.143680 -0.372552 
+                                          centerOfMass 0.062783 0.065485 0.015649
+					  #centerOfMass 0.174690 -0.143680 -0.372552 
                                           mass 0.044971
                                           momentsOfInertia [
 					  2.6480937E-5 -2.146781E-6 6.13169E-7
@@ -765,7 +782,7 @@ DEF Accelite3 Humanoid{
                               rotorResistor 1.0
                               children[
                                 DEF ParallelFrame_Down_Back_R_LINK Segment{
-                                  centerOfMass 0.140740 -0.134858 -0.285539 
+                                 centerOfMass -0.048799 0.000967 0.027800
                                   mass 0.009626 
                                   momentsOfInertia [
 				  1.4416187E-5 -2.2424E-8 -2.29198E-6
@@ -798,7 +815,8 @@ DEF Accelite3 Humanoid{
                       rotorResistor 1.0
                       children[
                         DEF ParallelFrame_Up_Back_R_LINK Segment{
-                          centerOfMass 0.141645 -0.134958 -0.157294 
+                          centerOfMass 0.019197 -0.053993 -0.029446
+			  #centerOfMass 0.141645 -0.134958 -0.157294 
                           mass 0.008512
                           momentsOfInertia [
 			  1.4751828E-5 -1.9712E-8 -2.88379E-7
@@ -833,7 +851,8 @@ DEF Accelite3 Humanoid{
           rotorResistor 1.0
           children[
             DEF Shoulder_R_LINK Segment{
-              centerOfMass 0.17763 -0.177792 0.039988 
+              centerOfMass -0.028482 0.001272 -0.023091
+	      #centerOfMass 0.17763 -0.177792 0.039988 
               mass 0.085562
               momentsOfInertia [ 
 	      4.5159738E-5 6.6021E-8 2.004020E-6
@@ -860,7 +879,8 @@ DEF Accelite3 Humanoid{
               rotorResistor 1.0
               children[
                 DEF Hand_R_LINK Segment{
-                  centerOfMass 0.174368 -0.193794 -0.099240
+                  centerOfMass -0.024982 -0.120110 0.026950
+		  #centerOfMass 0.174368 -0.193794 -0.099240
                   mass 0.041234 
                   momentsOfInertia [
 		  2.51800211E-4 4.7922E-8 -6.5402E-8
@@ -891,7 +911,8 @@ DEF Accelite3 Humanoid{
           rotorResistor 1.0
           children[
             DEF Shoulder_L_LINK Segment{
-              centerOfMass 0.172727 -0.002011 0.040112 
+              centerOfMass -0.028358 -0.001030 -0.023091
+	      #centerOfMass 0.172727 -0.002011 0.040112 
               mass 0.085562
               momentsOfInertia [
 	      4.4755014E-5 -7.5888E-8 1.745316E-6
@@ -918,7 +939,8 @@ DEF Accelite3 Humanoid{
               rotorResistor 1.0
               children[
                 DEF Hand_L_LINK Segment{
-                  centerOfMass 0.175321 -0.013967 -0.098940
+                  centerOfMass -0.024982 -0.120110 0.026950
+		  #centerOfMass 0.175321 -0.013967 -0.098940
                   mass 0.041234 
                   momentsOfInertia [
 		  2.51800211E-4 4.7922E-8 6.5402E-8
@@ -949,7 +971,8 @@ DEF Accelite3 Humanoid{
           rotorResistor 1.0
           children[
             DEF Head_LINK Segment{
-              centerOfMass 0.185087 -0.087837 0.127985
+              centerOfMass -0.023783 0.002124 -0.029415
+	      #centerOfMass 0.185087 -0.087837 0.127985
               mass 0.062527
               momentsOfInertia [
 	      2.6566975E-5 -4.006073E-6 -7.181066E-6

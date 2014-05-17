@@ -40,16 +40,16 @@ items:
           class: BodyItem
           data: 
             modelFile: "Accelite.yaml"
-            currentBaseLink: "Foot_R"
-            rootPosition: [  0.000000,  0.000000,  0.320000 ]
+            currentBaseLink: "Body"
+            rootPosition: [ -0.012348, -0.039134,  0.314837 ]
             rootAttitude: [ 
                1.000000,  0.000000,  0.000000, 
                0.000000,  1.000000,  0.000000, 
                0.000000,  0.000000,  1.000000 ]
             jointPositions: [ 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
+               0.000000,  0.000000, -0.087266,  0.087266,  0.000000,  0.000000,  0.349066,  0.349066, -0.349066, 
+               0.349066,  0.349066,  0.349066,  0.349066,  0.349066,  0.087266, -0.087266,  0.000000,  0.000000, 
+              -0.174533,  0.174533,  0.000000, -0.349066, -0.349066, -0.349066,  0.349066 ]
             initialRootPosition: [  0.000000,  0.000000,  0.320000 ]
             initialRootAttitude: [ 
                1.000000,  0.000000,  0.000000, 
@@ -59,7 +59,7 @@ items:
                0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
                0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
                0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
-            zmp: [  0.002892, -0.005560,  0.000000 ]
+            zmp: [  0.081887, -0.058085,  0.000000 ]
             selfCollisionDetection: false
           children: 
             - 
@@ -96,8 +96,8 @@ items:
 views: 
   "Items": 
     selected: [ 3 ]
-    checked: [ 1, 2, 3, 4 ]
-    expanded: [ 1, 3, 4, [ 4, "motion" ] ]
+    checked: [ 1, 2, 3 ]
+    expanded: [ 1, 3, 4 ]
   "Scene": 
     walkthrough: false
     showCollisions: false
@@ -118,9 +118,9 @@ views:
     useBufferForPicking: true
     camera: 
       current: Perspective
-      eye: [ 1.17312, -0.0673703, 0.769934 ]
-      direction: [ -0.869459, -0.146415, -0.471809 ]
-      up: [ -0.465258, -0.0783483, 0.881701 ]
+      eye: [ 0.824483, -0.315646, 0.580061 ]
+      direction: [ -0.893246, 0.289254, -0.344157 ]
+      up: [ -0.327418, 0.106026, 0.938912 ]
       fieldOfView: 0.6978
       near: 0.01
       far: 10000
@@ -169,10 +169,6 @@ views:
   "Links": 
     listingMode: "Link List"
     currentBodyItem: 3
-    bodyItems: 
-      - 
-        id: 3
-        selectedLinks: [ 0 ]
   "Body / Link": 
     showRotationMatrix: false
   "Joint Sliders": 
@@ -282,7 +278,7 @@ toolbars:
     current: 3
     stanceWidth: 0.15
   "KinematicsBar": 
-    mode: FK
+    mode: AUTO
     attitude: true
     penetrationBlock: true
     collisionLinkHighlight: true

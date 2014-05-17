@@ -1,6 +1,6 @@
 modelFile: "Accelite3.wrl"
 
-standardPose: []
+standardPose: [0,0,-5,5,0,0,20,20,-20,20,20,20,20,20,5,-5,0,0,-10,10,0,-20,-20,-20,20]
 
 linkGroup: 
   - name: UPPER-BODY
@@ -29,8 +29,8 @@ possileSupportLinks: [ Foot_R,Foot_L ]
 
 defaultIKsetup:
   Body: [ Foot_R,Foot_L ]
-  FootR: [ Body ]
-  FootL: [ Body ]
+  Foot_R: [ Body ]
+  Foot_L: [ Body ]
 
 footLinks:
   - link: Foot_R
@@ -53,6 +53,7 @@ symmetricJoints:
  - [Hand_R,Hand_L,-1]
  - [ParallelFrame_Up_Back_R,ParallelFrame_Up_Back_L,-1]
  - [ParallelFrame_Down_Back_R,ParallelFrame_Down_Back_L,-1]
+
 symmetricIkLinks:
   - [ Body]
   - [ Foot_L,Foot_R ]

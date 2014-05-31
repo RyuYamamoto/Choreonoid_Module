@@ -41,15 +41,15 @@ items:
           data: 
             modelFile: "Accelite.yaml"
             currentBaseLink: "Body"
-            rootPosition: [ -0.012348, -0.039134,  0.314837 ]
+            rootPosition: [  0.000000,  0.000000,  0.320000 ]
             rootAttitude: [ 
                1.000000,  0.000000,  0.000000, 
                0.000000,  1.000000,  0.000000, 
                0.000000,  0.000000,  1.000000 ]
             jointPositions: [ 
-               0.000000,  0.000000, -0.087266,  0.087266,  0.000000,  0.000000,  0.349066,  0.349066, -0.349066, 
-               0.349066,  0.349066,  0.349066,  0.349066,  0.349066,  0.087266, -0.087266,  0.000000,  0.000000, 
-              -0.174533,  0.174533,  0.000000, -0.349066, -0.349066, -0.349066,  0.349066 ]
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
             initialRootPosition: [  0.000000,  0.000000,  0.320000 ]
             initialRootAttitude: [ 
                1.000000,  0.000000,  0.000000, 
@@ -108,24 +108,24 @@ views:
     worldLightIntensity: 0.5
     worldLightAmbient: 0.3
     additionalLights: true
-    floorGrid: true
+    floorGrid: false
     floorGridSpan: 2
     floorGridInterval: 0.05
     normalVisualization: false
     normalLength: 0.01
     coordinateAxes: true
-    showFPS: false
+    showFPS: true
     useBufferForPicking: true
     camera: 
       current: Perspective
-      eye: [ 0.824483, -0.315646, 0.580061 ]
-      direction: [ -0.893246, 0.289254, -0.344157 ]
-      up: [ -0.327418, 0.106026, 0.938912 ]
+      eye: [ 0.500907, -0.190835, 0.273476 ]
+      direction: [ -0.943893, 0.326651, 0.0486405 ]
+      up: [ 0.0459658, -0.0159073, 0.998816 ]
       fieldOfView: 0.6978
       near: 0.01
       far: 10000
       orthoHeight: 0.323817
-    backgroundColor: [ 0.1, 0.1, 0.3 ]
+    backgroundColor: [ 0.333333, 0.333333, 1 ]
     gridColor: [ 0.9, 0.9, 0.9, 1 ]
   "Multi Value Seq": 
     mode: view
@@ -239,7 +239,7 @@ toolbars:
     frameRate: 100
     playbackFrameRate: 100
     idleLoopDrivenMode: false
-    currentTime: 0
+    currentTime: 0.1
     speedScale: 1
     syncToOngoingUpdates: false
   "BodyMotionGenerationBar": 

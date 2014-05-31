@@ -354,7 +354,7 @@ DEF Accelite3 Humanoid{
                         }
                         DEF ServoBoxKnee_L Joint {
                           jointType "rotate"
-                          jointId 8
+                          jointId 10
                           jointAxis 0.0 0.0 1.0 
                           translation 0 -0.1053 0.007 
                           ulimit [0.0 ]
@@ -381,7 +381,7 @@ DEF Accelite3 Humanoid{
                             }
                             DEF ParallelFrame_Down_Front_L Joint {
                               jointType "rotate"
-                              jointId 10
+                              jointId 12
                               jointAxis 0.0 0.0 1.0 
                               translation 0 -0.023 0.0514 
                               rotation 0 1 0 3.14 
@@ -409,7 +409,7 @@ DEF Accelite3 Humanoid{
                                 }
                                 DEF ServoBoxAnkle_L Joint {
                                   jointType "rotate"
-                                  jointId 12
+                                  jointId 16
                                   jointAxis 0.0 0.0 1.0 
                                   translation 0 -0.105 0.051 
                                   rotation 0 1 0 3.14 
@@ -437,7 +437,7 @@ DEF Accelite3 Humanoid{
                                     }
                                     DEF Foot_L Joint {
                                       jointType "rotate"
-                                      jointId 14
+                                      jointId 18
                                       jointAxis 0.0 0.0 1.0 
                                       translation 0.029 0 0.0239 
                                       rotation 0 1 0 -1.57 
@@ -471,7 +471,7 @@ DEF Accelite3 Humanoid{
                             }
                             DEF ParallelFrame_Down_Back_L Joint {
                               jointType "rotate"
-                              jointId 23
+                              jointId 14
                               jointAxis 0.0 0.0 1.0 
                               translation -0.04 -0.023 0.052 
                               rotation 0 0 1 1.367 
@@ -505,7 +505,7 @@ DEF Accelite3 Humanoid{
                     }
                     DEF ParallelFrame_Up_Back_L Joint {
                       jointType "rotate"
-                      jointId 21
+                      jointId 8
                       jointAxis 0.0 0.0 1.0 
                       translation 0.04 0 0.0055 
                       rotation 0 0 1 -0.209 
@@ -653,7 +653,7 @@ DEF Accelite3 Humanoid{
                         }
                         DEF ServoBoxKnee_R Joint {
                           jointType "rotate"
-                          jointId 9
+                          jointId 11
                           jointAxis 0.0 0.0 1.0 
                           translation 0 -0.1053 0.055 
                           rotation 1 0 0 3.14 
@@ -681,7 +681,7 @@ DEF Accelite3 Humanoid{
                             }
                             DEF ParallelFrame_Down_Front_R Joint {
                               jointType "rotate"
-                              jointId 11
+                              jointId 13
                               jointAxis 0.0 0.0 1.0 
                               translation 0 0.023 -0.0034 
                               rotation 0 0 1 3.14 
@@ -709,7 +709,7 @@ DEF Accelite3 Humanoid{
                                 }
                                 DEF ServoBoxAnkle_R Joint {
                                   jointType "rotate"
-                                  jointId 13
+                                  jointId 17
                                   jointAxis 0.0 0.0 1.0 
                                   translation 0 -0.105 0.006 
                                   rotation 0 1 0 3.14 
@@ -737,7 +737,7 @@ DEF Accelite3 Humanoid{
                                     }
                                     DEF Foot_R Joint {
                                       jointType "rotate"
-                                      jointId 15
+                                      jointId 19
                                       jointAxis 0.0 -0.0 1.0 
                                       translation 0.029 0 -0.0239 
                                       rotation 0 1 0 -1.57 
@@ -772,7 +772,7 @@ DEF Accelite3 Humanoid{
                             DEF ParallelFrame_Down_Back_R Joint {
                               jointType "rotate"
                               jointAxis 0.0 0.0 1.0
-			      jointId 24
+			      jointId 15
 			      translation -0.04 0.023 -0.0034
 			      rotation 0 0 1 -1.57
 			      rotation 0 0 1 -1.367
@@ -805,7 +805,7 @@ DEF Accelite3 Humanoid{
                     }
                     DEF ParallelFrame_Up_Back_R Joint {
                       jointType "rotate"
-                      jointId 22
+                      jointId 9
                       jointAxis 0.0 0.0 1.0 
                       translation 0.04 0 0.0055 
                       rotation 0 0 1 -0.209 
@@ -841,7 +841,7 @@ DEF Accelite3 Humanoid{
         }
         DEF Shoulder_R Joint {
           jointType "rotate"
-          jointId 17
+          jointId 20
           jointAxis 0.0 1.0 0.0 
           translation 0.0966 -0.08 0.1306 
           rotation 0 1 0 -1.57 
@@ -869,7 +869,7 @@ DEF Accelite3 Humanoid{
             }
             DEF Hand_R Joint {
               jointType "rotate"
-              jointId 19
+              jointId 22
               jointAxis 0.0 0.0 1.0 
               translation -0.0478 -0.0141 0.024 
               rotation 0 0 1 1.57 
@@ -901,7 +901,7 @@ DEF Accelite3 Humanoid{
         }
         DEF Shoulder_L Joint {
           jointType "rotate"
-          jointId 16
+          jointId 21
           jointAxis 0.0 1.0 0.0 
           translation 0.0966 0.048 0.1306 
           rotation 0 1 0 -1.57 
@@ -929,7 +929,7 @@ DEF Accelite3 Humanoid{
             }
             DEF Hand_L Joint {
               jointType "rotate"
-              jointId 18
+              jointId 23
               jointAxis 0.0 0.0 1.0 
               translation -0.0478 0.0141 -0.024 
               rotation 0 0 1 -1.57 
@@ -961,7 +961,7 @@ DEF Accelite3 Humanoid{
         }
         DEF Head Joint {
           jointType "rotate"
-          jointId 20
+          jointId 24
           jointAxis 0.0 0.0 1.0 
           translation 0.087 -0.016 0.165 
           rotation 0 1 0 3.14 

@@ -34,9 +34,9 @@ defaultIKsetup:
 
 footLinks:
   - link: Foot_R
-    soleCenter: [ -0.05, -0.01, -0.022 ]
+    soleCenter: [ -0.05, -0.015, -0.022 ]
   - link: Foot_L
-    soleCenter: [ -0.05, 0.01, -0.022 ]
+    soleCenter: [ -0.05, 0.015, -0.022 ]
 
 symmetricJoints:
  - [Head]

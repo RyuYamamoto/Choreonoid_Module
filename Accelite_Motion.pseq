@@ -2,5 +2,5 @@
 
 type: PoseSeq
 name: "Accelite_motion"
-targetBody: "Accelite"
+targetBody: "Accelite3"
 refs: 

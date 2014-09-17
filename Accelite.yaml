@@ -1,6 +1,6 @@
-modelFile: "Accelite3.wrl"
+modelFile: Accelite3.wrl
 
-standardPose: [0,0,-3,3,0,0,20,20,-20,-20,-20,20,20,20,-20,20,20,20,3,-3,0,0,8,-8,0]
+standardPose: [0,0,0,30,-30,30,30,0,0,0,0,30,30,30,30,0,0,10,0,-10,0]
 
 linkGroup: 
   - name: UPPER-BODY
@@ -19,9 +19,9 @@ linkGroup:
       - name: LEGS
         links:
         - name: R-LEG
-          links: [HipY_R,ServoBoxThigt_R,PrallelThigt_R,ParallelFrame_Up_Front_R,ParallelFrame_Up_Back_R,ServoBoxKnee_R,ParallelFrame_Down_Front_R,ParallelFrame_Down_Back_R,ServoBoxAnkle_R,Foot_R ]
+          links: [HipY_R,ServoBoxThigt_R,PrallelThigt_R,ParallelFrame_Up_Front_R,ServoBoxKnee_R,ParallelFrame_Down_Front_R,ServoBoxAnkle_R,Foot_R ]
         - name: L-LEG
-          links: [HipY_L,ServoBoxThigt_L,PrallelThigt_L,ParallelFrame_Up_Front_L,ParallelFrame_Up_Back_L,ServoBoxKnee_L,ParallelFrame_Down_Front_L,ParallelFrame_Down_Back_L,ServoBoxAnkle_L,Foot_L ]
+          links: [HipY_L,ServoBoxThigt_L,PrallelThigt_L,ParallelFrame_Up_Front_L,ServoBoxKnee_L,ParallelFrame_Down_Front_L,ServoBoxAnkle_L,Foot_L ]
 
 possibleIkInterpolationLinks: [ Body, Foot_R, Foot_L ]
 defaultIkInterpolationLinks: [Body,Foot_R,Foot_L]
@@ -34,33 +34,32 @@ defaultIKsetup:
 
 footLinks:
   - link: Foot_R
-    soleCenter: [ -0.05, -0.01, -0.022 ]
+    soleCenter: [ -0.0548, -0.01045, -0.04 ]
   - link: Foot_L
-    soleCenter: [ -0.05, 0.01, -0.022 ]
+    soleCenter: [ -0.0546, 0.00175, -0.04 ]
 
 symmetricJoints:
  - [Head]
- - [Shoulder_R,Shoulder_L,-1]
- - [Hand_R,Hand_L,-1]
- - [Hip_R,Hip_L,-1]
- - [PrallelThigt_R,PrallelThigt_L,-1]
- - [ParallelFrame_Up_Front_R,ParallelFrame_Up_Front_L,-1]
- - [ParallelFrame_Up_Back_R,ParallelFrame_Up_Back_L,-1]
- - [ServoBoxKnee_R,ServoBoxKnee_L,-1]
- - [ParalleFrame_Down_Front_R,ParalleFrame_Down_Front_L,-1]
- - [ParalleFrame_Down_Back_R,ParalleFrame_Down_Back_L,-1]
- - [ServoBoxAnkle_R,ServoBoxAnkle_L,-1]
- - [Foot_R,Foot_L,-1]
- - [Shoulder_R,Shoulder_L,-1]
- - [Hand_R,Hand_L,-1]
- - [ParallelFrame_Up_Back_R,ParallelFrame_Up_Back_L,-1]
- - [ParallelFrame_Down_Back_R,ParallelFrame_Down_Back_L,-1]
+ - [Shoulder_L,Shoulder_R,-1]
+ - [Hand_L,Hand_R,-1]
+ - [HipY_L,HipY_R,-1]
+ - [ServoBoxThigt_L,ServoBoxThigt_R,-1]
+ - [PrallelThigt_L,PrallelThigt_R,-1]
+ - [ParallelFrame_Up_Front_L,ParallelFrame_Up_Front_R,-1]
+ - [ServoBoxKnee_L,ServoBoxKnee_R,-1]
+ - [ParalleFrame_Down_Front_L,ParalleFrame_Down_Front_R,-1]
+ - [ServoBoxAnkle_L,ServoBoxAnkle_R,-1]
+ - [Foot_L,Foot_R,-1]
 
 symmetricIkLinks:
   - [ Body]
   - [ Foot_L,Foot_R ]
 
-divisionNumberOfPrimitiveGeometries: 26
+divisionNumberOfPrimitiveGeometries: 11
+
+selfCollisionDetection:
+        excludeTreeDepth: 3 
+        excludeLinks: []
 
 poseConversionInfo:
   - targetBodies: [ HRP4C ]

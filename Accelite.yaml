@@ -1,10 +1,7 @@
 modelFile: Accelite3.wrl
 
-<<<<<<< HEAD
 standardPose: [0,0,0,30,-30,30,30,0,0,0,0,30,30,30,30,0,0,10,0,-10,0]
-=======
 standardPose: []
->>>>>>> parent of e5fdca2... 逆運動学モードに対応
 
 linkGroup: 
   - name: UPPER-BODY
@@ -44,7 +41,6 @@ footLinks:
 
 symmetricJoints:
  - [Head]
-<<<<<<< HEAD
  - [Shoulder_L,Shoulder_R,-1]
  - [Hand_L,Hand_R,-1]
  - [HipY_L,HipY_R,-1]
@@ -56,7 +52,6 @@ symmetricJoints:
  - [ServoBoxAnkle_L,ServoBoxAnkle_R,-1]
  - [Foot_L,Foot_R,-1]
 
-=======
  - [Shoulder_R,Shoulder_L,-1]
  - [Hand_R,Hand_L,-1]
  - [Hip_R,Hip_L,-1]
@@ -70,7 +65,6 @@ symmetricJoints:
  - [Hand_R,Hand_L,-1]
  - [ParallelFrame_Up_Back_R,ParallelFrame_Up_Back_L,-1]
  - [ParallelFrame_Down_Back_R,ParallelFrame_Down_Back_L,-1]
->>>>>>> parent of e5fdca2... 逆運動学モードに対応
 symmetricIkLinks:
   - [ Body]
   - [ Foot_L,Foot_R ]

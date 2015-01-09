@@ -476,8 +476,6 @@ DEF Accelite3 Humanoid{
                                 }
                               ]
                             }
-<<<<<<< HEAD
-=======
                             DEF ParallelFrame_Down_Back_L Joint {
                               jointType "rotate"
                               jointId 23
@@ -536,7 +534,6 @@ DEF Accelite3 Humanoid{
                             Inline { url "sim_vrml files/ParallelFrame_Up_Back.wrl" }
                               ]
                             }
->>>>>>> parent of e5fdca2... 逆運動学モードに対応
                           ]
                         }
                       ]
@@ -785,8 +782,6 @@ DEF Accelite3 Humanoid{
                                 }
                               ]
                             }
-<<<<<<< HEAD
-=======
                             DEF ParallelFrame_Down_Back_R Joint {
                               jointType "rotate"
                               jointAxis 0.0 0.0 1.0
@@ -839,7 +834,6 @@ DEF Accelite3 Humanoid{
 			  1.4751828E-5 -1.9712E-8 -2.88379E-7
 			  -1.9712E-8 9.198009E-6 1.357E-9
 			  -2.88379E-7 1.357E-9 6.744113E-6
->>>>>>> parent of e5fdca2... 逆運動学モードに対応
 			  ]
                         }
                       ]

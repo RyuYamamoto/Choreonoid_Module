@@ -835,6 +835,13 @@ DEF Accelite3 Humanoid{
 			  -1.9712E-8 9.198009E-6 1.357E-9
 			  -2.88379E-7 1.357E-9 6.744113E-6
 			  ]
+													children[
+														Transform{
+															children[
+																Inline {url "sim_vrml files/ParallelFrame_Up_Back.wrl"}
+															]
+														}
+													]
                         }
                       ]
                     }

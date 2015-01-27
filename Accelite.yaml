@@ -1,7 +1,6 @@
 modelFile: Accelite3.wrl
 
-standardPose: [0,0,0,30,-30,30,30,0,0,0,0,30,30,30,30,0,0,10,0,-10,0]
-standardPose: []
+standardPose: [0,-3,0,20,-20,20,20,3,0,3,0,20,20,20,20,-3,0,10,0,-10,0,-20,-20,-20,20]
 
 linkGroup: 
   - name: UPPER-BODY

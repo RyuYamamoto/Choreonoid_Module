@@ -10,288 +10,248 @@ items:
       plugin: Body
       class: WorldItem
       data: 
-        collisionDetection: true
+        collisionDetection: false
+        collisionDetector: AISTCollisionDetector
       children: 
         - 
           id: 2
-          name: "Floor"
-          plugin: Body
-          class: BodyItem
-          data: 
-            modelFile: "${SHARE}/model/misc/smallfloor.wrl"
-            currentBaseLink: "BASE"
-            rootPosition: [  0.000000,  0.000000, -0.010000 ]
-            rootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
-            jointPositions: [  ]
-            initialRootPosition: [  0.000000,  0.000000, -0.010000 ]
-            initialRootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
-            zmp: [  0.000000,  0.000000,  0.000000 ]
-            selfCollisionDetection: false
-        - 
-          id: 3
-<<<<<<< HEAD
-=======
-          name: "Accelite"
-          plugin: Body
-          class: BodyItem
-          data: 
-            modelFile: "Accelite.yaml"
-            currentBaseLink: "Foot_R"
-            rootPosition: [  0.000000,  0.000000,  0.320000 ]
-            rootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
-            jointPositions: [ 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
-            initialRootPosition: [  0.000000,  0.000000,  0.320000 ]
-            initialRootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
-            initialJointPositions: [ 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
-            zmp: [  0.002892, -0.005560,  0.000000 ]
-            selfCollisionDetection: false
-          children: 
-            - 
-              id: 4
-              name: "Accelite_motion"
-              plugin: PoseSeq
-              class: PoseSeqItem
-              data: 
-                filename: "Accelite_motion.pseq"
-                format: POSE-SEQ-YAML
-        - 
-          id: 5
->>>>>>> parent of e5fdca2... 逆運動学モードに対応
-          name: "AISTSimulator"
-          plugin: Body
-          class: AISTSimulatorItem
-          data: 
-            realtimeSync: false
-            recordingMode: TimeBar range
-            onlyActiveControlPeriod: true
-            timeLength: 60
-            allLinkPositionOutputMode: false
-            deviceStateRecording: true
-            dynamicsMode: Forward dynamics
-            integrationMode: Runge Kutta
-            gravity: [ 0, 0, -9.80665 ]
-            staticFriction: 1
-            slipFriction: 1
-            cullingThresh: 0.005
-            errorCriterion: 0.001
-            maxNumIterations: 1000
-            contactCorrectionDepth: 0.0001
-            contactCorrectionVelocityRatio: 30
-            2Dmode: false
-        - 
-          id: 4
           name: "Accelite3"
           plugin: Body
           class: BodyItem
           data: 
             modelFile: "Accelite.yaml"
             currentBaseLink: "Foot_R"
-            rootPosition: [ -0.089757,  0.019025,  0.287556 ]
+            rootPosition: [ -0.0896, 0.0193, 0.3156 ]
             rootAttitude: [ 
-               1.000000, -0.000585, -0.000002, 
-               0.000585,  1.000000, -0.000583, 
-               0.000003,  0.000583,  1.000000 ]
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
             jointPositions: [ 
-               0.000000,  0.000000,  0.000000,  0.523599, -0.523599,  0.523599,  0.523599,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.523599,  0.523599,  0.523599,  0.523599,  0.000000,  0.000000,  0.174533, 
-               0.000000, -0.174533,  0.000000 ]
-            initialRootPosition: [ -0.089600,  0.019300,  0.315600 ]
+               0.000000, -0.052360,  0.000000,  0.349066, -0.349066,  0.349066,  0.349066,  0.052360,  0.000000, 
+               0.052360,  0.000000,  0.349066,  0.349066,  0.349066,  0.349066, -0.052360,  0.000000,  0.174533, 
+               0.000000, -0.174533,  0.000000, -0.349066, -0.349066, -0.349066,  0.349066 ]
+            initialRootPosition: [ -0.0896, 0.0193, 0.3156 ]
             initialRootAttitude: [ 
-               1.000000,  0.000000,  0.000000, 
-               0.000000,  1.000000,  0.000000, 
-               0.000000,  0.000000,  1.000000 ]
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
             initialJointPositions: [ 
                0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
                0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000, 
-               0.000000,  0.000000,  0.000000 ]
-            zmp: [  0.000000,  0.000000,  0.000000 ]
+               0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000,  0.000000 ]
+            zmp: [ 0, 0, 0 ]
+            collisionDetection: true
             selfCollisionDetection: false
+            isEditable: true
           children: 
             - 
-              id: 5
-              name: "Accelite_motion"
+              id: 3
+              name: "PoseSeq"
               plugin: PoseSeq
               class: PoseSeqItem
               data: 
-                filename: "Accelite_Motion.pseq"
+                filename: "PoseSeq.pseq"
                 format: POSE-SEQ-YAML
+                barLength: 1
+        - 
+          id: 4
+          name: "AISTSimulator"
+          plugin: Body
+          class: AISTSimulatorItem
+          data: 
+            realtimeSync: false
+            recording: full
+            timeRangeMode: TimeBar range
+            onlyActiveControlPeriod: true
+            timeLength: 60
+            allLinkPositionOutputMode: false
+            deviceStateOutput: true
+            controllerThreads: true
+            dynamicsMode: Forward dynamics
+            integrationMode: Runge Kutta
+            gravity: [ 0, 0, -9.80665 ]
+            staticFriction: 1
+            slipFriction: 1
+            cullingThresh: 0.005
+            contactCullingDepth: 0.05
+            errorCriterion: 0.001
+            maxNumIterations: 1000
+            contactCorrectionDepth: 0.0001
+            contactCorrectionVelocityRatio: 1
+            kinematicWalking: false
+            2Dmode: false
+        - 
+          id: 5
+          name: "Floor"
+          plugin: Body
+          class: BodyItem
+          data: 
+            modelFile: "${SHARE}/model/misc/floor.wrl"
+            currentBaseLink: "BASE"
+            rootPosition: [ 0, 0, -0.1 ]
+            rootAttitude: [ 
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
+            jointPositions: [  ]
+            initialRootPosition: [ 0, 0, -0.1 ]
+            initialRootAttitude: [ 
+              1, 0, 0, 
+              0, 1, 0, 
+              0, 0, 1 ]
+            zmp: [ 0, 0, 0 ]
+            collisionDetection: true
+            selfCollisionDetection: false
+            isEditable: true
 views: 
-  "Items": 
-<<<<<<< HEAD
-    selected: [ 4 ]
-    checked: [ 2, 4 ]
-    expanded: [ 1, 4, 5, [ 5, "motion" ] ]
-=======
-    selected: [ 3 ]
-    checked: [ 1, 2, 3, 4 ]
-    expanded: [ 1, 3, 4, [ 4, "motion" ] ]
->>>>>>> parent of e5fdca2... 逆運動学モードに対応
-  "Scene": 
-    walkthrough: false
-    showCollisions: true
-    wireframe: false
-    defaultHeadLight: true
-    defaultHeadLightIntensity: 0.75
-    worldLight: true
-    worldLightIntensity: 0.5
-    worldLightAmbient: 0.3
-    additionalLights: true
-    floorGrid: true
-    floorGridSpan: 10
-    floorGridInterval: 0.5
-    normalVisualization: false
-    normalLength: 0.01
-    coordinateAxes: true
-    showFPS: false
-    useBufferForPicking: true
-    camera: 
-      current: Perspective
-<<<<<<< HEAD
-      eye: [ 0.845045, 0.00267213, 0.456538 ]
-      direction: [ -0.974055, 0.0549483, -0.219538 ]
-      up: [ -0.219189, 0.0123649, 0.975604 ]
-=======
-      eye: [ 1.17312, -0.0673703, 0.769934 ]
-      direction: [ -0.869459, -0.146415, -0.471809 ]
-      up: [ -0.465258, -0.0783483, 0.881701 ]
->>>>>>> parent of e5fdca2... 逆運動学モードに対応
-      fieldOfView: 0.6978
-      near: 0.01
-      far: 10000
-      orthoHeight: 20
-    backgroundColor: [ 0.1, 0.1, 0.3 ]
-    gridColor: [ 0.9, 0.9, 0.9, 1 ]
-  "Multi Value Seq": 
-    mode: view
-    editMode: freeLine
-    original: true
-    velocity: false
-    acceleration: false
-    limits: true
-    grid: true
-    gridWidth: 0.2
-    gridHeight: 0.2
-    lineWidth: 1
-    rulers: false
-    sync: true
-    controlPointStep: 1
-    controlPointOffset: 0
-    controlPointHeighlight: false
-    scrollMode: continuous
-    lower: -10
-    upper: 10
-  "Multi SE3 Seq": 
-    mode: view
-    editMode: freeLine
-    original: true
-    velocity: false
-    acceleration: false
-    limits: true
-    grid: true
-    gridWidth: 0.2
-    gridHeight: 0.2
-    lineWidth: 1
-    rulers: false
-    sync: true
-    controlPointStep: 1
-    controlPointOffset: 0
-    controlPointHeighlight: false
-    scrollMode: continuous
-    lower: -10
-    upper: 10
-    visibleElements: [ 0, 1, 2 ]
-  "Links": 
-    listingMode: "Link List"
-<<<<<<< HEAD
-    currentBodyItem: 4
-=======
-    currentBodyItem: 3
-    bodyItems: 
-      - 
-        id: 3
-        selectedLinks: [ 0 ]
->>>>>>> parent of e5fdca2... 逆運動学モードに対応
-  "Body / Link": 
-    showRotationMatrix: false
-  "Joint Sliders": 
-    showAllJoints: true
-    jointId: true
-    name: true
-    numColumns: 1
-    spinBox: true
-    slider: true
-    labelOnLeft: true
-    currentBodyItem: 4
-  "Joint Trajectories": 
-    mode: view
-    editMode: freeLine
-    original: true
-    velocity: false
-    acceleration: false
-    limits: true
-    grid: true
-    gridWidth: 0.2
-    gridHeight: 0.2
-    lineWidth: 1
-    rulers: false
-    sync: true
-    controlPointStep: 1
-    controlPointOffset: 0
-    controlPointHeighlight: false
-    scrollMode: continuous
-    lower: -10
-    upper: 10
-  "Multi Affine3 Seq": 
-    mode: view
-    editMode: freeLine
-    original: true
-    velocity: false
-    acceleration: false
-    limits: true
-    grid: true
-    gridWidth: 0.2
-    gridHeight: 0.2
-    lineWidth: 1
-    rulers: false
-    sync: true
-    controlPointStep: 1
-    controlPointOffset: 0
-    controlPointHeighlight: false
-    scrollMode: continuous
-    lower: -10
-    upper: 10
-    visibleElements: [ 0, 1, 2, 3, 4, 5 ]
-  "Media": 
-    keepAspectRatio: true
-    keepOriginalSize: true
-  "Pose Roll": 
-    currentPoseSeqItem: 5
-    defaultTransitionTime: 0
-    updateAll: true
-    autoUpdate: false
-    timeSync: true
-    listingMode: "Part Tree"
-    timeLength: 10
-    showLipSync: false
-    gridInterval: 1
+  - 
+    id: 0
+    plugin: Base
+    class: ItemPropertyView
+    mounted: true
+  - 
+    id: 1
+    plugin: Base
+    class: ItemTreeView
+    mounted: true
+    state: 
+      checked: [ 2, 5 ]
+      expanded: [ 1, 2, [ 3, "motion" ] ]
+  - 
+    id: 2
+    plugin: Base
+    class: MessageView
+    mounted: true
+  - 
+    id: 3
+    plugin: Base
+    class: SceneView
+    mounted: true
+    state: 
+      editMode: false
+      viewpointControlMode: thirdPerson
+      collisionLines: false
+      polygonMode: fill
+      defaultHeadLight: true
+      defaultHeadLightIntensity: 0.75
+      headLightLightingFromBack: false
+      worldLight: true
+      worldLightIntensity: 0.5
+      worldLightAmbient: 0.3
+      additionalLights: true
+      floorGrid: false
+      floorGridSpan: 10
+      floorGridInterval: 0.5
+      xzGridSpan: 10
+      xzGridInterval: 0.5
+      xzGrid: false
+      yzGridSpan: 10
+      yzGridInterval: 0.5
+      texture: true
+      lineWidth: 1
+      pointSize: 1
+      normalVisualization: false
+      normalLength: 0.01
+      coordinateAxes: true
+      showFPS: false
+      enableNewDisplayListDoubleRendering: false
+      useBufferForPicking: true
+      camera: 
+        current: Perspective
+        eye: [ 0.861928073, 0.414674175, 0.472485949 ]
+        direction: [ -0.889848408, -0.405173825, -0.209771263 ]
+        up: [ -0.190912331, -0.0869279291, 0.977750488 ]
+        fieldOfView: 0.6978
+        near: 0.01
+        far: 100
+        orthoHeight: 20
+      backgroundColor: [ 0.100000001, 0.100000001, 0.300000012 ]
+      gridColor: [ 0.899999976, 0.899999976, 0.899999976, 1 ]
+      xzgridColor: [ 0.899999976, 0.899999976, 0.899999976, 1 ]
+      yzgridColor: [ 0.899999976, 0.899999976, 0.899999976, 1 ]
+      dedicatedItemTreeViewChecks: false
+  - 
+    id: 4
+    plugin: Body
+    class: BodyLinkView
+    mounted: true
+    state: 
+      showRotationMatrix: false
+  - 
+    id: 5
+    plugin: Body
+    class: JointSliderView
+    mounted: true
+    state: 
+      showAllJoints: true
+      jointId: true
+      name: true
+      numColumns: 1
+      spinBox: true
+      slider: true
+      labelOnLeft: true
+      currentBodyItem: 2
+  - 
+    id: 6
+    name: "Link Trajectories"
+    plugin: Body
+    class: LinkGraphView
+    state: 
+      mode: view
+      editMode: freeLine
+      original: true
+      velocity: false
+      acceleration: false
+      limits: true
+      grid: true
+      gridWidth: 0.2
+      gridHeight: 0.2
+      lineWidth: 1
+      rulers: false
+      sync: true
+      controlPointStep: 1
+      controlPointOffset: 0
+      controlPointHeighlight: false
+      scrollMode: continuous
+      lower: -10
+      upper: 10
+      visibleElements: [ 0, 1, 2 ]
+  - 
+    id: 7
+    plugin: Body
+    class: LinkSelectionView
+    mounted: true
+    state: 
+      listingMode: "Link List"
+      currentBodyItem: 2
+      bodyItems: 
+        - 
+          id: 2
+          selectedLinks: [ 0 ]
+        - 
+          id: 5
+          selectedLinks: [ 0 ]
+  - 
+    id: 8
+    name: "Pose Roll"
+    plugin: PoseSeq
+    class: PoseRollView
+    mounted: true
+    state: 
+      currentPoseSeqItem: 3
+      defaultTransitionTime: 0
+      updateAll: true
+      autoUpdate: false
+      timeSync: true
+      listingMode: "Part Tree"
+      timeLength: 10
+      showLipSync: false
+      gridInterval: 1
+  - 
+    id: 9
+    plugin: Python
+    class: PythonConsoleView
+    mounted: true
 toolbars: 
   "TimeBar": 
     minTime: 0
@@ -301,14 +261,27 @@ toolbars:
     idleLoopDrivenMode: false
     currentTime: 0
     speedScale: 1
-    syncToOngoingUpdates: false
+    syncToOngoingUpdates: true
+    autoExpansion: true
+  "KinematicsBar": 
+    mode: AUTO
+    enablePositionDragger: true
+    penetrationBlock: false
+    collisionLinkHighlight: false
+    snapDistance: 0.025
+    penetrationBlockDepth: 0.0005
+    lazyCollisionDetectionMode: true
+  "BodyBar": 
+    current: 2
+  "LeggedBodyBar": 
+    stanceWidth: 0.15
   "BodyMotionGenerationBar": 
-    balancer: true
-    autoGeneration: true
+    balancer: false
+    autoGeneration: false
     timeScaleRatio: 1
     preInitialDuration: 1
     postFinalDuration: 1
-    onlyTimeBarRange: true
+    onlyTimeBarRange: false
     makeNewBodyItem: true
     stealthyStepMode: true
     stealthyHeightRatioThresh: 2
@@ -321,41 +294,34 @@ toolbars:
     zmpCenteringTimeThresh: 0.03
     zmpTimeMarginBeforeLiftingSpin: 0
     zmpMaxDistanceFromCenter: 0.02
-    allLinkPositions: true
+    allLinkPositions: false
     lipSyncMix: false
     timeToStartBalancer: 0
     balancerIterations: 2
     plainBalancerMode: false
     boundaryConditionType: position
-    boundarySmootherType: off
+    boundarySmootherType: quintic
     boundarySmootherTime: 0.5
     boundaryCmAdjustment: false
     boundaryCmAdjustmentTime: 1
     waistHeightRelaxation: false
     gravity: 9.8
     dynamicsTimeRatio: 1
-  "BodyBar": 
-    current: 4
-    stanceWidth: 0.15
-  "KinematicsBar": 
-    mode: FK
-    attitude: true
-    penetrationBlock: true
-    collisionLinkHighlight: true
-    snapDistance: 0.025
-    penetrationBlockDepth: 0.0005
-    lazyCollisionDetectionMode: true
-Base: 
-  "MovieGenerator": 
-    directory: 
-    basename: scene
-    begin: 0
-    fps: 30
-    width: 640
-    heiht: 480
 Body: 
   "BodyMotionEngine": 
     updateJointVelocities: false
+  "EditableSceneBody": 
+    editableSceneBodies: 
+      - 
+        bodyItem: 2
+        showCenterOfMass: true
+        showPpcom: true
+        showZmp: true
+      - 
+        bodyItem: 5
+        showCenterOfMass: false
+        showPpcom: false
+        showZmp: false
   "KinematicFaultChecker": 
     checkJointPositions: true
     angleMargin: 0

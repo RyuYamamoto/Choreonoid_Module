@@ -1,0 +1,51 @@
+modelFile: "JAXONmain.wrl"
+
+standardPose: [
+    0,0,-25,50,-25,0,
+    0,0,-25,50,-25,0,
+    0,15,0,
+    0,0,
+    0,-20,-15,0,-30,0,0,0,
+    0,-20,15,0,-30,0,0,0
+]
+
+linkGroup: 
+  - name: UPPER-BODY
+    links: 
+      - name: NECK
+        links: [ HEAD_JOINT0,HEAD_JOINT1 ]
+      - name: ARMS
+        links:
+          - name: R-ARM
+            links: [ RARM_JOINT0,RARM_JOINT1,RARM_JOINT2,RARM_JOINT3,RARM_JOINT4,RARM_JOINT55,RARM_JOINT6,RARM_JOINT7 ]
+          - name: L-ARM
+            links: [ SLARM_JOINT0,LARM_JOINT1,LARM_JOINT2,LARM_JOINT3,LARM_JOINT4,LARM_JOINT55,LARM_JOINT6,LARM_JOINT7 ]
+  - BODY
+  - name: LOWER-BODY
+    links:
+      - name: LEGS
+        links:
+        - name: R-LEG
+          links: [RLEG_JOINT0,RLEG_JOINT1,RLEG_JOINT2,RLEG_JOINT3,RLEG_JOINT4,RLEG_JOINT5 ]
+        - name: L-LEG
+          links: [LLEG_JOINT0,LLEG_JOINT1,LLEG_JOINT2,LLEG_JOINT3,LLEG_JOINT4,LLEG_JOINT5 ]
+
+possibleIkInterpolationLinks: [ BODY, RLEG_JOINT5, LLEG_JOINT5 ]
+defaultIkInterpolationLinks: [BODY,RLEG_JOINT5,LLEG_JOINT5]
+possileSupportLinks: [ RLEG_JOINT5,LLEG_JOINT5 ]
+
+defaultIKsetup:
+  Body: [ RLEG_JOINT5,LLEG_JOINT5 ]
+  FootR: [ BODY ]
+  FootL: [ BODY ]
+
+footLinks:
+  - link: RLEG_JOINT5
+    soleCenter: [ 0, -0.01045, -0.04 ]
+  - link: LLEG_JOINT5
+    soleCenter: [ 0, 0.001045, -0.04 ]
+
+
+selfCollisionDetection:
+  excludeTreeDepth: 2
+  excludeLinks: [ ]

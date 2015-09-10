@@ -63,17 +63,23 @@ public:
 		
 		//JointPath rarm = body->getJointPath(body->link("CHEST_JOINT2"),body->link("RARM_JOINT7"));
 		//JointPath larm = body->getJointPath(bdoy->link("CHEST_JOINT2"),body->link("LARM_JOINT7"));
-		JointPathPtr larm = getCustomJointPath(body,body->link("CHEST_JOINT2"),body->link("LARM_JOINT7"));
+		JointPathPtr l_footlink = getCustomJointPath(body,body->link("WAIST"),body->link("LLEG_JOINT5"));
+		JointPathPtr r_footlink = getCustomJointPath(body,body->link("WAIST"),body->link("RLEG_JOINT5"));
 
 		//rarm->calcFowardKinematics();
-		larm->calcForwardKinematics();
-		
-		Vector3 ltarget_p(body->link("LARM_JOINT7")->p());
-		Matrix3 ltarget_R(body->link("LARM_JOINT7")->R());
-		
-		ltarget_p(0) = ltarget_p(0) + 0.1;
+		//l_link->calcForwardKinematics();
+		l_footlink->calcForwardKinematics();
+		r_footlink->calcForwardKinematics();
 
-		if(larm->calcInverseKinematics(ltarget_p,ltarget_R))
+		Vector3 ltarget_p(body->link("LLEG_JOINT5")->p());
+		Matrix3 ltarget_R(body->link("LLEG_JOINT5")->R());
+		Vector3 rtarget_p(body->link("RLEG_JOINT5")->p());
+		Matrix3 rtarget_R(body->link("RLEG_JOINT5")->R());
+
+		ltarget_p(2) = ltarget_p(2) + 0.05;
+		rtarget_p(2) = rtarget_p(2) + 0.05;
+
+		if(l_footlink->calcInverseKinematics(ltarget_p,ltarget_R) && r_footlink->calcInverseKinematics(rtarget_p,rtarget_R))
 		{
 			bodyItems[0]->notifyKinematicStateChange(true);
 		}

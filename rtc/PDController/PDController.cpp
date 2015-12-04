@@ -23,15 +23,14 @@ const char* PDController_spec[] =
 PDController::PDController(RTC::Manager* manager)
     : RTC::DataFlowComponentBase(manager),
       m_angleIn("q", m_angle),
-	  m_torqueOut("u", m_torque),
-	  dt(0.001),
-	  dq_old(0.0)
+			m_torqueOut("u", m_torque),
+			dt(0.001),
+			dq_old(0.0)
 {
 }
 
 PDController::~PDController()
 {
-
 }
 
 void PDController::ReadGain(size_t numJoints,std::vector<double> &pgain,std::vector<double> &dgain)
@@ -39,7 +38,7 @@ void PDController::ReadGain(size_t numJoints,std::vector<double> &pgain,std::vec
 	FILE *PDGain;
 	float temp_pgain,temp_dgain;
 	char joint_name[20];
-	PDGain = fopen("/usr/lib/choreonoid-1.5/rtc/PDGain.txt","r");
+	PDGain = fopen("/home/haze/choreonoid_data/rtc/PDController/pdgain.txt","r");
 	//PDGain = fopen("/home/haze/jvrc/src/PDController/pdgain.txt","r");
 
 	pgain.clear(); dgain.clear();
@@ -63,28 +62,28 @@ void PDController::ReadGain(size_t numJoints,std::vector<double> &pgain,std::vec
 
 RTC::ReturnCode_t PDController::onInitialize()
 {
-    // Set InPort buffers
-    addInPort("q", m_angleIn);
+	// Set InPort buffers
+	addInPort("q", m_angleIn);
 	//addInPort("refq",m_anglelRefIn);
 
-    // Set OutPort buffenr
-    addOutPort("u", m_torqueOut);
+	// Set OutPort buffenr
+	addOutPort("u", m_torqueOut);
 
-    return RTC::RTC_OK;
+	return RTC::RTC_OK;
 }
 
 RTC::ReturnCode_t PDController::onActivated(RTC::UniqueId ec_id)
 {
-    if(m_angleIn.isNew()){
-        m_angleIn.read();
+	if(m_angleIn.isNew()){
+		m_angleIn.read();
 		ReadGain(m_angle.data.length(),pgain,dgain);
 	}
 
 	for(size_t i=0;i<m_angle.data.length();i++){
 		angleRef[i] = q_old[i] = q_old_ref[i] = m_angle.data[i];
 	}
- 
-    return RTC::RTC_OK;
+	
+	return RTC::RTC_OK;
 }
 
 RTC::ReturnCode_t PDController::onDeactivated(RTC::UniqueId ec_id)
@@ -95,27 +94,27 @@ RTC::ReturnCode_t PDController::onDeactivated(RTC::UniqueId ec_id)
 
 RTC::ReturnCode_t PDController::onExecute(RTC::UniqueId ec_id)
 {
-    if(m_angleIn.isNew()){
-		 m_angleIn.read();
+	if(m_angleIn.isNew()){
+		m_angleIn.read();
 	}
 	
-    for(size_t i=0; i < m_angle.data.length(); i++){
+	for(size_t i=0; i < m_angle.data.length(); i++){
 		double q_ref = angleRef[i];
 		double q = m_angle.data[i];
-        double dq_ref = (q_ref - q_old_ref[i]) / dt;
-        double dq = (q - q_old[i]) / dt;
+		double dq_ref = (q_ref - q_old_ref[i]) / dt;
+		double dq = (q - q_old[i]) / dt;
 		m_torque.data[i] = (q_ref - q) * pgain[i] + (dq_ref - dq) * dgain[i];
 		if(i == 37){
-		    double ddq = (dq - dq_old)/dt;
+			double ddq = (dq - dq_old)/dt;
 			m_torque.data[i] = (1.0 - dq) * 100 - 0.2 * ddq;
 			dq_old = dq;
 		}
 		q_old[i] = q;
-    }
+  }
 	q_old_ref = angleRef;
-    m_torqueOut.write();
+  m_torqueOut.write();
 
-    return RTC::RTC_OK;
+	return RTC::RTC_OK;
 }
 
 extern "C"

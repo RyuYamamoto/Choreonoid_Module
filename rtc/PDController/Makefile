@@ -22,3 +22,4 @@ install:
 	mkdir -p $(DESTDIR)/lib/choreonoid-1.5/rtc
 	$(INSTALL) $(TARGET) $(DESTDIR)/lib/choreonoid-1.5/rtc
 	$(INSTALL) $(TARGET) $(DESTDIR)/lib/choreonoid-1.5/rtc
+	$(INSTALL) $(TEXT) $(DESTDIR)/lib/choreonoid-1.5/rtc

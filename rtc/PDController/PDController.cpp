@@ -4,28 +4,28 @@ using namespace std;
 using namespace cnoid;
 
 namespace{
-const char* PDController_spec[] =
-{
-    "implementation_id", "PDController",
-    "type_name",         "PDController",
-    "description",       "Robot TorqueController component",
-    "version",           "0.1",
-    "vendor",            "CIT",
-    "category",          "Generic",
-    "activity_type",     "DataFlowComponent",
-    "max_instance",      "10",
-    "language",          "C++",
-    "lang_type",         "compile",
-    ""
-};
+	const char* PDController_spec[] =
+	{
+		"implementation_id", "PDController",
+		"type_name",         "PDController",
+		"description",       "Robot TorqueController component",
+		"version",           "0.1",
+		"vendor",            "CIT",
+		"category",          "Generic",
+		"activity_type",     "DataFlowComponent",
+		"max_instance",      "10",
+		"language",          "C++",
+		"lang_type",         "compile",
+		""
+	};
 }
 
 PDController::PDController(RTC::Manager* manager)
-    : RTC::DataFlowComponentBase(manager),
-      m_angleIn("q", m_angle),
-			m_torqueOut("u", m_torque),
-			dt(0.001),
-			dq_old(0.0)
+	: RTC::DataFlowComponentBase(manager),
+	m_angleIn("q", m_angle),
+	m_torqueOut("u", m_torque),
+	dt(0.001),
+	dq_old(0.0)
 {
 }
 
@@ -81,14 +81,14 @@ RTC::ReturnCode_t PDController::onActivated(RTC::UniqueId ec_id)
 	for(size_t i=0;i<m_angle.data.length();i++){
 		angleRef[i] = q_old[i] = q_old_ref[i] = m_angle.data[i];
 	}
-	
+
 	return RTC::RTC_OK;
 }
 
 RTC::ReturnCode_t PDController::onDeactivated(RTC::UniqueId ec_id)
 {
 	cout<<"Deactivated"<<endl;
-    return RTC::RTC_OK;
+	return RTC::RTC_OK;
 }
 
 RTC::ReturnCode_t PDController::onExecute(RTC::UniqueId ec_id)
@@ -96,7 +96,7 @@ RTC::ReturnCode_t PDController::onExecute(RTC::UniqueId ec_id)
 	if(m_angleIn.isNew()){
 		m_angleIn.read();
 	}
-	
+
 	for(size_t i=0; i < m_angle.data.length(); i++){
 		double q_ref = angleRef[i];
 		double q = m_angle.data[i];
@@ -109,20 +109,20 @@ RTC::ReturnCode_t PDController::onExecute(RTC::UniqueId ec_id)
 			dq_old = dq;
 		}
 		q_old[i] = q;
-  }
+	}
 	q_old_ref = angleRef;
-  m_torqueOut.write();
+	m_torqueOut.write();
 
 	return RTC::RTC_OK;
 }
 
 extern "C"
 {
-    DLL_EXPORT void PDControllerInit(RTC::Manager* manager)
-    {
-        coil::Properties profile(PDController_spec);
-        manager->registerFactory(profile,
-                                 RTC::Create<PDController>,
-                                 RTC::Delete<PDController>);
-    }
+	DLL_EXPORT void PDControllerInit(RTC::Manager* manager)
+	{
+		coil::Properties profile(PDController_spec);
+		manager->registerFactory(profile,
+				RTC::Create<PDController>,
+				RTC::Delete<PDController>);
+	}
 };

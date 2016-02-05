@@ -54,8 +54,8 @@ items:
               data: 
                 isImmediateMode: true
                 moduleName: "PDController"
-                confFileName: ""
-                configurationMode: "Create Default Port"
+                confFileName: "JAXON_RTC.conf"
+                configurationMode: "Use Configuration File"
                 AutoConnect: true
                 InstanceName: "JAXON_JVRC"
                 bodyPeriodicRate: 0
@@ -140,7 +140,7 @@ views:
     class: ItemTreeView
     mounted: true
     state: 
-      selected: [ 5 ]
+      selected: [ 3 ]
       checked: [ 2, 4 ]
       expanded: [ 1, 2, 3, 5 ]
   - 
@@ -190,9 +190,9 @@ views:
           fieldOfView: 0.6978
           near: 0.01
           far: 100
-          eye: [ 1.84385581, -2.10213376, 1.01150384 ]
-          direction: [ -0.639115029, 0.767397156, -0.0513184637 ]
-          up: [ -0.0328416756, 0.0394336032, 0.99868234 ]
+          eye: [ -3.07364063, -2.59230179, 2.30003491 ]
+          direction: [ 0.871861978, 0.416050958, -0.25837626 ]
+          up: [ 0.233186431, 0.111276143, 0.966044361 ]
         - 
           camera: [ System, Orthographic ]
           orthoHeight: 20
@@ -223,7 +223,7 @@ views:
       spinBox: true
       slider: true
       labelOnLeft: true
-      currentBodyItem: 2
+      currentBodyItem: 4
   - 
     id: 6
     plugin: Body
@@ -231,7 +231,7 @@ views:
     mounted: true
     state: 
       listingMode: "Link List"
-      currentBodyItem: 2
+      currentBodyItem: 4
   - 
     id: 7
     plugin: Python
@@ -257,7 +257,7 @@ toolbars:
     penetrationBlockDepth: 0.0005
     lazyCollisionDetectionMode: true
   "BodyBar": 
-    current: 2
+    current: 4
   "LeggedBodyBar": 
     stanceWidth: 0.15
   "BodyMotionGenerationBar": 
